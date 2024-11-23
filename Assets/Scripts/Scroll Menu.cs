@@ -18,6 +18,16 @@ public class ScrollMenu : MonoBehaviour
     private Vector2 targetPosition;
     private void Start()
     {
+        
+    }
+
+    private void Update()
+    {
+        content.anchoredPosition = Vector2.Lerp(content.anchoredPosition, targetPosition, Time.deltaTime * transitionSpeed);
+    }
+
+    public void NavigateToPage(int pageIndex)
+    {
         float spacing = layoutGroup.spacing;
 
         pagePositions = new Vector2[pageCount];
@@ -29,15 +39,6 @@ public class ScrollMenu : MonoBehaviour
         }
 
         targetPosition = content.anchoredPosition;
-    }
-
-    private void Update()
-    {
-        content.anchoredPosition = Vector2.Lerp(content.anchoredPosition, targetPosition, Time.deltaTime * transitionSpeed);
-    }
-
-    public void NavigateToPage(int pageIndex)
-    {
         if (pageIndex < 0 || pageIndex >= pageCount)
         {
             Debug.LogError("Invalid page index!");
