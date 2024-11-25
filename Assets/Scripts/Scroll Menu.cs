@@ -23,7 +23,7 @@ public class ScrollMenu : MonoBehaviour
 
     private void Update()
     {
-        content.anchoredPosition = Vector2.Lerp(content.anchoredPosition, targetPosition, Time.deltaTime * transitionSpeed);
+        content.anchoredPosition = Vector2.Lerp(content.anchoredPosition, targetPosition, Time.unscaledDeltaTime * transitionSpeed);
     }
 
     public void NavigateToPage(int pageIndex)
