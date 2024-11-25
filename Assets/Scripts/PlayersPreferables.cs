@@ -15,9 +15,13 @@ public class PlayersPreferables : MonoBehaviour
     public const string attackPowerKey = "attackPower";
     public const string attackSpeedKey = "attackSpeed";
     public const string moveSpeedKey = "moveSpeed";
+    public const string critMultKey = "criticalMultiplier";
+    public const string critChanceKey = "criticalChance";
+    public const string goldMultKey = "goldMultiplier";
     // ---------------------
     // Scenes Checker;
-
+    private const string sceneCheckerkey = "sceneCheck";
+    private const string difficultyKey = "difficulty";
     // ---------------------
     // Settings Value
     public bool muteMode;
@@ -28,9 +32,12 @@ public class PlayersPreferables : MonoBehaviour
     // Player Stats Value;
     public int currency;
     public int maxHealth;
-    public float attackPower;
-    public float attackSpeed;
-    public float moveSpeed;
+    public int attackPower;
+    public int attackSpeed;
+    public int moveSpeed;
+    public int criticalMultiplier;
+    public int criticalChance;
+    public int goldMultiplier;
 
     void Start()
     {
@@ -48,13 +55,16 @@ public class PlayersPreferables : MonoBehaviour
         PlayerPrefs.Save();
     }
     
-    public void saveStats(int currency, int maxHealth, float attackPower, float attackSpeed, float moveSpeed)
+    public void saveStats(int currency, int maxHealth, int attackPower, int attackSpeed, int moveSpeed, int critMult, int critChance, int goldMult)
     {
         PlayerPrefs.SetInt(currencyKey, currency);
         PlayerPrefs.SetInt(maxHealthKey, maxHealth);
         PlayerPrefs.SetFloat(attackPowerKey, attackPower);
         PlayerPrefs.SetFloat(attackSpeedKey, attackSpeed);
         PlayerPrefs.SetFloat(moveSpeedKey, moveSpeed);
+        PlayerPrefs.SetFloat(critMultKey, critMult);
+        PlayerPrefs.SetFloat(critChanceKey, critChance);
+        PlayerPrefs.SetFloat(goldMultKey, goldMult);
 
         PlayerPrefs.Save();
     }
@@ -70,10 +80,13 @@ public class PlayersPreferables : MonoBehaviour
     public void loadStats ()
     {
         currency = PlayerPrefs.GetInt(currencyKey, 0);
-        maxHealth = PlayerPrefs.GetInt(maxHealthKey, 5);
-        attackPower = PlayerPrefs.GetFloat(attackPowerKey, 10f);
-        attackSpeed = PlayerPrefs.GetFloat(attackSpeedKey, 1f);
-        moveSpeed = PlayerPrefs.GetFloat(moveSpeedKey, 1f);
+        maxHealth = PlayerPrefs.GetInt(maxHealthKey, 1);
+        attackPower = PlayerPrefs.GetInt(attackPowerKey, 1);
+        attackSpeed = PlayerPrefs.GetInt(attackSpeedKey, 1);
+        moveSpeed = PlayerPrefs.GetInt(moveSpeedKey, 1);
+        criticalMultiplier = PlayerPrefs.GetInt(critMultKey, 1);
+        criticalChance = PlayerPrefs.GetInt(critChanceKey, 1);
+        goldMultiplier = PlayerPrefs.GetInt(goldMultKey, 1);
     }
 
     
