@@ -2,14 +2,13 @@ using UnityEngine;
 
 public class ArrowSpawn : MonoBehaviour
 {
-    public GameObject prefab; // The prefab to spawn
-    public Transform target;  // The target the prefab will move towards
-    public float spawnRate; // Spawn rate in seconds
-    public float speed; // Speed of the prefab
+    public GameObject prefab; 
+    public Transform target;  
+    public float spawnRate; 
+    public float speed; 
 
     private void Start()
     {
-        // Start spawning at fixed intervals
         InvokeRepeating(nameof(SpawnPrefab), 0f, spawnRate);
     }
 

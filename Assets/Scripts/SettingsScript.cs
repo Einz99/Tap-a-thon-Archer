@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class SettingsScript : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private TextMeshProUGUI musicLevel;
     [SerializeField] private TextMeshProUGUI sfxLevel;
     [SerializeField] private Button muteMode;

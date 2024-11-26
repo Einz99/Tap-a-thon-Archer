@@ -3,10 +3,9 @@ using UnityEngine.UI;
 
 public class BossHealthBar : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     public float MaxHealth;
     private float currentHealth;
-    private float damage = 500;
+    private float damage = 50;
     public Slider BossHp;
     public GameObject extraHearts;
     private void Start()
@@ -26,9 +25,9 @@ public class BossHealthBar : MonoBehaviour
         if (currentHealth > damage)
         {
             currentHealth -= damage;
-            float percentage = currentHealth / MaxHealth;
+            float percentage = 100 - ((currentHealth / MaxHealth) * 100);
             Debug.Log(percentage);
-            BossHp.value += percentage * 100;
+            BossHp.value = percentage;
         }
         else
         {

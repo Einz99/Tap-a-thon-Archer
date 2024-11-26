@@ -7,7 +7,6 @@ public class BackStoryScript : MonoBehaviour
     private const string sceneCheckerkey = "sceneCheck";
     public VideoPlayer videoPlayer;
     public Scene scene;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         videoPlayer.loopPointReached += onVideoEnd;
@@ -19,9 +18,6 @@ public class BackStoryScript : MonoBehaviour
         PlayerPrefs.SetInt(sceneCheckerkey, 1);
     }
 
-    /// <summary>
-    /// This function is called when the MonoBehaviour will be destroyed.
-    /// </summary>
     void OnDestroy()
     {
         if(videoPlayer != null)
