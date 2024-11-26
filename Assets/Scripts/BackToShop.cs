@@ -8,4 +8,8 @@ public class BackToShop : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene(2);
     }
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 }

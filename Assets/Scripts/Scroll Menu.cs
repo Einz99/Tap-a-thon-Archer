@@ -16,6 +16,7 @@ public class ScrollMenu : MonoBehaviour
 
     private Vector2[] pagePositions;
     private Vector2 targetPosition;
+    public GameObject BackHandler;
     private void Start()
     {
         
@@ -46,5 +47,6 @@ public class ScrollMenu : MonoBehaviour
         }
 
         targetPosition = pagePositions[pageIndex];
+        BackHandler.GetComponent<AndroidBack>().OtherPage = true;
     }
 }

@@ -3933,6 +3933,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1404312090}
   m_CullTransparentMesh: 1
+--- !u!1 &1425636611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1425636612}
+  - component: {fileID: 1425636613}
+  m_Layer: 0
+  m_Name: Menu Back
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1425636612
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425636611}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 462.72714, y: 841.43695, z: -17.961145}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1425636613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425636611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 895b593c29ba96f49b9e2d17153e86ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OtherPage: 0
+  ScrollMenu: {fileID: 1712275634}
 --- !u!1 &1447097475
 GameObject:
   m_ObjectHideFlags: 0
@@ -5181,6 +5227,7 @@ MonoBehaviour:
   transitionSpeed: 15
   scrollAdjustments: 1.5
   layoutGroup: {fileID: 315014663}
+  BackHandler: {fileID: 1425636611}
 --- !u!1 &1721464694
 GameObject:
   m_ObjectHideFlags: 0
@@ -6290,11 +6337,15 @@ MonoBehaviour:
   attackPower: 0
   attackSpeed: 0
   moveSpeed: 0
+  criticalMultiplier: 0
+  criticalChance: 0
+  goldMultiplier: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
+  - {fileID: 1425636612}
   - {fileID: 619394802}
   - {fileID: 1973102437}
   - {fileID: 1510383971}

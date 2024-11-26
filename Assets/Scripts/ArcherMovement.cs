@@ -12,6 +12,7 @@ public class ArcherMovement : MonoBehaviour
     private int direction = 1;
     public bool currentDirect = true;
     public Transform boss;
+    public bool isHolding = false;
 
 
     void Start()
@@ -38,6 +39,7 @@ public class ArcherMovement : MonoBehaviour
 
     void Update()
     {
+        if (isHolding) return;
         if (pathPoints == null || pathPoints.Count == 0) return;
 
         Vector2 target = pathPoints[currentIndex];

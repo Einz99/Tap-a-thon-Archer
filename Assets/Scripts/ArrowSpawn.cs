@@ -11,6 +11,20 @@ public class ArrowSpawn : MonoBehaviour
     {
         InvokeRepeating(nameof(SpawnPrefab), 0f, spawnRate);
     }
+    
+    public void checkHolding(bool isHolding)
+    {
+        if(isHolding)
+        {
+            CancelInvoke(nameof(SpawnPrefab));
+        }
+        else
+        {
+            InvokeRepeating(nameof(SpawnPrefab), 0f, spawnRate);
+        }
+    }
+        
+    
 
     private void SpawnPrefab()
     {
