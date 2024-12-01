@@ -3,37 +3,55 @@ using UnityEngine;
 public class ArrowSpawn : MonoBehaviour
 {
     public GameObject prefab; 
-    public Transform target;  
-    public float spawnRate; 
-    public float speed; 
-
+    public GameObject critPrefab; 
+    public Transform target;
+    public PlayerCalculation PC;
+    public BossHealthBar BHB;
     private void Start()
-    {
-        InvokeRepeating(nameof(SpawnPrefab), 0f, spawnRate);
+    {   
+        checkHolding(false);
     }
+    
     
     public void checkHolding(bool isHolding)
     {
         if(isHolding)
         {
-            CancelInvoke(nameof(SpawnPrefab));
+            CancelInvoke(nameof(checkCrit));
         }
         else
         {
-            InvokeRepeating(nameof(SpawnPrefab), 0f, spawnRate);
+            InvokeRepeating(nameof(checkCrit), 0f, PC.spawnRate);
         }
     }
         
-    
-
-    private void SpawnPrefab()
+    private void checkCrit()
     {
-        // Spawn the prefab at the spawner's position
-        GameObject spawnedObject = Instantiate(prefab, transform.position, Quaternion.identity);
+        int randomCrit = Random.Range(1,101);
+        if(randomCrit > PC.criticalChance)
+        {
+            SpawnRegPrefab();
+            BHB.damage = PC.attackPower;
+        }
+        else
+        {
+            SpawnCritPrefab();
+            BHB.damage = PC.attackPower * PC.criticalMultiplier;
+        }
+    }
 
-        // Add a script to move the prefab
+    private void SpawnRegPrefab()
+    {
+        GameObject spawnedObject = Instantiate(prefab, transform.position, Quaternion.identity);
         ArrowDirections arrowDirections = spawnedObject.AddComponent<ArrowDirections>();
         arrowDirections.target = target;
-        arrowDirections.speed = speed;
+        arrowDirections.speed = PC.attackSpeed;
+    }
+    private void SpawnCritPrefab()
+    {
+        GameObject spawnedObject = Instantiate(critPrefab, transform.position, Quaternion.identity);
+        ArrowDirections arrowDirections = spawnedObject.AddComponent<ArrowDirections>();
+        arrowDirections.target = target;
+        arrowDirections.speed = PC.attackSpeed;
     }
 }

@@ -24,12 +24,12 @@ public class SettingsScriptLoading : MonoBehaviour
     /// </summary>
     void Start()
     {
-        mute.GetComponent<Toggle>().ToggleValue = PlayerPrefs.GetInt(muteKey) == 1;
-        vibrate.GetComponent<Toggle>().ToggleValue = PlayerPrefs.GetInt(vibrateKey) == 1;
-        musicLevel.GetComponent<Slider>().value = PlayerPrefs.GetFloat(musicLevelKey);
-        sfxLevel.GetComponent<Slider>().value = PlayerPrefs.GetFloat(sfxLevelKey);
-        musicValue.text = PlayerPrefs.GetFloat(musicLevelKey).ToString();
-        sfxValue.text = PlayerPrefs.GetFloat(sfxLevelKey).ToString();
+        mute.GetComponent<Toggle>().ToggleValue = PlayerPrefs.GetInt(muteKey, 1) == 1;
+        vibrate.GetComponent<Toggle>().ToggleValue = PlayerPrefs.GetInt(vibrateKey, 0) == 1;
+        musicLevel.GetComponent<Slider>().value = PlayerPrefs.GetFloat(musicLevelKey, 100);
+        sfxLevel.GetComponent<Slider>().value = PlayerPrefs.GetFloat(sfxLevelKey, 100);
+        musicValue.text = PlayerPrefs.GetFloat(musicLevelKey, 100).ToString();
+        sfxValue.text = PlayerPrefs.GetFloat(sfxLevelKey, 100).ToString();
     }
 
     // Update is called once per frame

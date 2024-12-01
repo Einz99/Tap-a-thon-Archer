@@ -17,7 +17,7 @@ public class ArrowDirections : MonoBehaviour
         {
             Quaternion targetRotation = Quaternion.LookRotation(direction);
 
-            targetRotation *= Quaternion.Euler(0f, 90f, 90f);
+            targetRotation *= Quaternion.Euler(0f, 90f, 45f);
 
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
         }

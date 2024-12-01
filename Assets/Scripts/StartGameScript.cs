@@ -21,6 +21,11 @@ public class StartGameScript : MonoBehaviour
 
     public void resetSceneChecker()
     {
-        PlayerPrefs.DeleteKey(sceneCheckerkey);
+        PlayerPrefs.DeleteAll();
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }

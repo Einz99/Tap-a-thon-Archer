@@ -14,8 +14,9 @@ public class BackStoryScript : MonoBehaviour
 
     public void onVideoEnd(VideoPlayer vp) 
     {
-        SceneManager.LoadScene(2);
         PlayerPrefs.SetInt(sceneCheckerkey, 1);
+        PlayerPrefs.Save();
+        SceneManager.LoadScene(2);
     }
 
     void OnDestroy()

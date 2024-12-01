@@ -1,4 +1,6 @@
 using TMPro;
+using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,9 +11,9 @@ public class ShoppingScript : MonoBehaviour
     public TextMeshProUGUI costtxt;
     private int level;
     public Button button;
-    public int[] prices;
+    private int[] prices;
     public int maxLevel;
-    private int Gold;
+    private static int Gold;
     public const string currencyKey = "currency";
     public const string maxHealthKey = "maxHealth";
     public const string attackPowerKey = "attackPower";
@@ -24,90 +26,198 @@ public class ShoppingScript : MonoBehaviour
     private void Start()
     {
         Gold = PlayerPrefs.GetInt(currencyKey, 0);
+        GameObject.Find("Amount_txt").GetComponent<TextMeshProUGUI>().text = Gold.ToString();
+        prices = new int[maxLevel + 1];
         switch (gameObject.name)
         {
             case "Attack Power":
-                level = PlayerPrefs.GetInt(attackPowerKey, 1);
+                level = PlayerPrefs.GetInt(attackPowerKey, 0);
+                for (int i = 0; i < prices.Length; i++)
+                {
+                    int baseprice = 50;
+                    if(i != maxLevel)
+                    {
+                        prices[i] = (int)math.round(baseprice * math.pow(1.2, i + 1));
+                    }
+                    else
+                    {
+                        prices[i] = 0;
+                    }
+                }
                 break;
             case "Attack Speed":
-                level = PlayerPrefs.GetInt(attackSpeedKey, 1);
+                level = PlayerPrefs.GetInt(attackSpeedKey, 0);
+                for (int i = 0; i < prices.Length; i++)
+                {
+                    int baseprice = 50;
+                    if(i != maxLevel)
+                    {
+                        prices[i] = (int)math.round(baseprice * math.pow(1.2, i + 1));
+                    }
+                    else
+                    {
+                        prices[i] = 0;
+                    }
+                }
                 break;
             case "Critical Multiplier":
-                level = PlayerPrefs.GetInt(critMultKey, 1);
+                level = PlayerPrefs.GetInt(critMultKey, 0);
+                for (int i = 0; i < prices.Length; i++)
+                {
+                    int baseprice = 50;
+                    if(i != maxLevel)
+                    {
+                        prices[i] = (int)math.round(baseprice * math.pow(1.2, i + 1));
+                    }
+                    else
+                    {
+                        prices[i] = 0;
+                    }
+                }
                 break;
             case "Critical Chance":
-                level = PlayerPrefs.GetInt(critChanceKey, 1);
+                level = PlayerPrefs.GetInt(critChanceKey, 0);
+                for (int i = 0; i < prices.Length; i++)
+                {
+                    int baseprice = 50;
+                    if(i != maxLevel)
+                    {
+                        prices[i] = (int)math.round(baseprice * math.pow(1.2, i + 1));
+                    }
+                    else
+                    {
+                        prices[i] = 0;
+                    }
+                }
                 break;
             case "Max Health":
-                level = PlayerPrefs.GetInt(maxHealthKey, 1);
+                level = PlayerPrefs.GetInt(maxHealthKey, 0);
+                for (int i = 0; i < prices.Length; i++)
+                {
+                    int baseprice = 50;
+                    if(i != maxLevel)
+                    {
+                        prices[i] = (int)math.round(baseprice * math.pow(1.5, i + 1));
+                    }
+                    else
+                    {
+                        prices[i] = 0;
+                    }
+                }
                 break;
             case "Movement Speed":
-                level = PlayerPrefs.GetInt(moveSpeedKey, 1);
+                level = PlayerPrefs.GetInt(moveSpeedKey, 0);
+                for (int i = 0; i < prices.Length; i++)
+                {
+                    int baseprice = 50;
+                    if(i != maxLevel)
+                    {
+                        prices[i] = (int)math.round(baseprice * math.pow(1.3, i + 1));
+                    }
+                    else
+                    {
+                        prices[i] = 0;
+                    }
+                }
                 break;
             case "Gold Multiplier":
-                level = PlayerPrefs.GetInt(goldMultKey, 1);
+                level = PlayerPrefs.GetInt(goldMultKey, 0);
+                for (int i = 0; i < prices.Length; i++)
+                {
+                    int baseprice = 50;
+                    if(i != maxLevel)
+                    {
+                        prices[i] = (int)math.round(baseprice * math.pow(1.4, i + 1));
+                    }
+                    else
+                    {
+                        prices[i] = 0;
+                    }
+                }
+                break;
+        }
+        if (level > maxLevel-1 || Gold < prices[level])
+        {
+            button.interactable = false;
+        }
+        switch (gameObject.name)
+        {
+            case "Attack Power":
+                slider.value = maxLevel - PlayerPrefs.GetInt(attackPowerKey, 0);
+                break;
+            case "Attack Speed":
+                slider.value = maxLevel - PlayerPrefs.GetInt(attackSpeedKey, 0);
+                break;
+            case "Critical Multiplier":
+                slider.value = maxLevel - PlayerPrefs.GetInt(critMultKey, 0);
+                break;
+            case "Critical Chance":
+                slider.value = maxLevel - PlayerPrefs.GetInt(critChanceKey, 0);
+                break;
+            case "Max Health":
+                slider.value = maxLevel - PlayerPrefs.GetInt(maxHealthKey, 0);
+                break;
+            case "Movement Speed":
+                slider.value = maxLevel - PlayerPrefs.GetInt(moveSpeedKey, 0);
+                break;
+            case "Gold Multiplier":
+                slider.value = maxLevel - PlayerPrefs.GetInt(goldMultKey, 0);
                 break;
         }
     }
     private void Update()
     {
-        if (level - 1 >= 0)
-        {
-            costtxt.text = prices[level - 1].ToString();
-            if (Gold >= prices[level - 1] && level < maxLevel)
-            {
-                button.interactable = true;
-            }
-            else
-            {
-                button.interactable = false;
-            }
-        }
+        costtxt.text = prices[level].ToString();
     }
 
     public void OnUpgrade()
-    {
-        level++;
-        int i = level;
-        if (i > maxLevel - 1)
+    {   
+        if (level > maxLevel-1 || Gold < prices[level])
         {
             button.interactable = false;
+            return;
         }
+        Gold -= prices[level];
         slider.value--;
+        level++;
         leveltxt.text = "Level " + level;
-        Gold = Gold - prices[level - 1];
-        //PlayerPrefs.SetInt(currencyKey, Gold);
+        GameObject.Find("Amount_txt").GetComponent<TextMeshProUGUI>().text = Gold.ToString();
+        PlayerPrefs.SetInt(currencyKey, Gold);
         switch (gameObject.name)
         {
             case "Attack Power":
                 Debug.Log("Attack Power Upgraded!");
-                //PlayerPrefs.SetInt(attackPowerKey, level);
+                PlayerPrefs.SetInt(attackPowerKey, level);
                 break;
             case "Attack Speed":
                 Debug.Log("Attack Speed Upgraded!");
-                //PlayerPrefs.SetInt(attackSpeedKey, level);
+                PlayerPrefs.SetInt(attackSpeedKey, level);
                 break;
             case "Critical Multiplier":
                 Debug.Log("Critical Multiplier Upgraded");
-                //PlayerPrefs.SetInt(critMultKey, level);
+                PlayerPrefs.SetInt(critMultKey, level);
                 break;
             case "Critical Chance":
                 Debug.Log("Crit Chance Upgraded");
-                //PlayerPrefs.SetInt(critChanceKey, level);
+                PlayerPrefs.SetInt(critChanceKey, level);
                 break;
             case "Max Health":
                 Debug.Log("Max Health Upgraded");
-                //PlayerPrefs.SetInt(maxHealthKey, level);
+                PlayerPrefs.SetInt(maxHealthKey, level);
                 break;
             case "Movement Speed":
                 Debug.Log("Movement Speed Upgraded");
-                //PlayerPrefs.SetInt(moveSpeedKey, level);
+                PlayerPrefs.SetInt(moveSpeedKey, level);
                 break;
             case "Gold Multiplier":
                 Debug.Log("Gold Multiplier Upgraded");
-                //PlayerPrefs.SetInt(goldMultKey, level);
+                PlayerPrefs.SetInt(goldMultKey, level);
                 break;
         }
-        //PlayerPrefs.Save();
+        if (level > maxLevel-1 || Gold < prices[level])
+        {
+            button.interactable = false;
+        }
+        PlayerPrefs.Save();
     }
 }
