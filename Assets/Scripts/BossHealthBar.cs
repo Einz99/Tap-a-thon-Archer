@@ -5,19 +5,12 @@ public class BossHealthBar : MonoBehaviour
 {
     public float MaxHealth;
     private float currentHealth;
-    public float damage = 1;
+    private float damage = 50;
     public Slider BossHp;
     public GameObject extraHearts;
-    public GameObject pause;
-    public GameObject winningPage;
-    public FightCalculation FC;
-    private int firsthit;
-    
     private void Start()
     {
-        MaxHealth = FC.Health;
-        currentHealth = FC.Health;
-        firsthit = 0;
+        currentHealth = MaxHealth;
     }
     void OnTriggerEnter2D(Collider2D x)
     {
@@ -28,7 +21,7 @@ public class BossHealthBar : MonoBehaviour
     }
 
     private void HealthCalculations()
-    {   
+    {
         if (currentHealth > damage)
         {
             currentHealth -= damage;
@@ -37,7 +30,7 @@ public class BossHealthBar : MonoBehaviour
             BossHp.value = percentage;
         }
         else
-        {   
+        {
             currentHealth -= currentHealth;
             BossHp.value = 100;
             if (extraHearts.transform.childCount != 0)
@@ -53,8 +46,6 @@ public class BossHealthBar : MonoBehaviour
             else
             {
                 Time.timeScale = 0;
-                pause.SetActive(false);
-                winningPage.SetActive(true);
             }
         }
     }
