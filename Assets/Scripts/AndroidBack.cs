@@ -1,5 +1,4 @@
 using UnityEditor;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,7 +7,7 @@ public class AndroidBack : MonoBehaviour
 {
 
     // Update is called once per frame
-    private bool pressAgain = true;
+    private bool pressAgain = false;
     public bool OtherPage = false;
     public GameObject ScrollMenu;
     void Update()
@@ -20,12 +19,30 @@ public class AndroidBack : MonoBehaviour
         }
     }
 
+    public void toOtherPage()
+    {
+        OtherPage = true;
+    }
+
     private void BackButtonPress()
     {
         if (OtherPage)
         {
-            ScrollMenu.GetComponent<ScrollMenu>().NavigateToPage(0);
             OtherPage = false;
+            if (transform.name == "Shop Back")
+            {
+                Button Checking = GameObject.Find("Back to Shop").GetComponent<Button>();
+                if (Checking != null)
+                {
+                    Checking.onClick.Invoke();
+                }
+                else
+                {
+                    Debug.Log("No button exist");
+                }
+                return;
+            }
+            ScrollMenu.GetComponent<ScrollMenu>().NavigateToPage(0);
         }
         else
         {
@@ -37,9 +54,17 @@ public class AndroidBack : MonoBehaviour
                 }
                 if (transform.name == "Shop Back")
                 {
-                    GameObject.Find("Back to Menu").GetComponent<Button>().onClick.Invoke();
+                    Button Checking = GameObject.Find("Back to Shop").GetComponent<Button>();
+                    if (Checking != null)
+                    {
+                        Checking.onClick.Invoke();
+                    }
+                    else
+                    {
+                        Debug.Log("No button exist");
+                    }
                 }
-                if (transform.name == "Back To Shop")
+                if (transform.name == "Boss Fight Back")
                 {
                     GameObject.Find("Pause Button").GetComponent<Button>().onClick.Invoke();
                 }
@@ -54,9 +79,17 @@ public class AndroidBack : MonoBehaviour
                 }
                 if (transform.name == "Shop Back")
                 {
-                    GameObject.Find("Shop Cancel").GetComponent<Button>().onClick.Invoke();
+                    Button Checking = GameObject.Find("Back to Menu").GetComponent<Button>();
+                    if (Checking != null)
+                    {
+                        Checking.onClick.Invoke();
+                    }
+                    else
+                    {
+                        Debug.Log("No button exist");
+                    }
                 }
-                if (transform.name == "Back To Shop")
+                if (transform.name == "Boss Fight Back")
                 {
                     GameObject.Find("Resume").GetComponent<Button>().onClick.Invoke();
                 }

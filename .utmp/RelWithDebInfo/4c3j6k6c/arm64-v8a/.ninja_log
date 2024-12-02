@@ -1,0 +1,12 @@
+# ninja log v5
+27	4774	7546725493593939	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	865b255bf675c9ab
+32	4784	7546725493713644	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	cdf119b0f1ea8e2c
+39	5045	7546725495492301	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	390e7f35422c98ea
+1	5089	7546725496449978	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	7fd45322b01eca29
+44	5313	7546725499313352	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	1e5501b17f6c846e
+9	5405	7546725500341312	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	9d7beca2fc9b04fe
+5045	5728	7546725503669286	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	28822c128469f6eb
+4778	5937	7546725505660951	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	48b79187b43f65a4
+4785	6010	7546725506448347	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	94080b2eba4c613e
+5729	6295	7546725509252577	C:/Users/ronal/Tap-a-thon Archer/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/4c3j6k6c/obj/arm64-v8a/libswappywrapper.so	9cbf0de4fbd69f54
+6010	6384	7546725509581815	C:/Users/ronal/Tap-a-thon Archer/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/4c3j6k6c/obj/arm64-v8a/libgame.so	a07fdd2bef76ae15

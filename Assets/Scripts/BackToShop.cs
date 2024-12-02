@@ -10,6 +10,7 @@ public class BackToShop : MonoBehaviour
     }
     public void BackToMenu()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
 }

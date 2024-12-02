@@ -10,6 +10,6 @@ public class StartBossFightScript : MonoBehaviour
         PlayerPrefs.SetInt(difficultyKey, difficulty);
         PlayerPrefs.Save();
         int randomBoss = Random.Range(3,8);
-        SceneManager.LoadScene(randomBoss);
+        SceneManager.LoadScene(3);
     }
 }

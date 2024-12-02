@@ -1,22 +1,27 @@
+using System.Collections;
 using System.Collections.Generic;
-using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 
 public class ArcherMovement : MonoBehaviour
 {
 
-    public GameObject outlineShape; 
-    private List<Vector2> pathPoints; 
-    private int currentIndex = 0; 
-    private float moveSpeed = 2f; 
+    public GameObject outlineShape;
+    private List<Vector2> pathPoints;
+    private int currentIndex = 0;
+    public float moveSpeed = 2f;
     private int direction = 1;
     public bool currentDirect = true;
     public Transform boss;
     public bool isHolding = false;
-
-
+    public PlayerCalculation PC;
+    public GameObject heartContainer;
+    public const string vibrateKey = "vibrateMode";
+    private bool isCooldown = false; // Flag to track cooldown
+    public GameObject pause;
+    public GameObject LosingPage;
     void Start()
     {
+        moveSpeed = PC.moveSpeed;
         var collider = outlineShape.GetComponent<PolygonCollider2D>();
         if (collider != null)
         {
@@ -39,6 +44,13 @@ public class ArcherMovement : MonoBehaviour
 
     void Update()
     {
+        
+        if (heartContainer.transform.childCount == 0)
+        {
+            Time.timeScale = 0;
+            pause.SetActive(false);
+            LosingPage.SetActive(true);
+        }
         if (isHolding) return;
         if (pathPoints == null || pathPoints.Count == 0) return;
 
@@ -61,7 +73,7 @@ public class ArcherMovement : MonoBehaviour
         {
             float angle = Mathf.Atan2(bossdirection.y, bossdirection.x) * Mathf.Rad2Deg;
 
-            angle -= 90f; 
+            angle -= 90f;
 
             Quaternion targetRotation = Quaternion.Euler(0f, 0f, angle);
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
@@ -78,6 +90,37 @@ public class ArcherMovement : MonoBehaviour
         else
         {
             direction = -1;
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D x)
+    {
+        if (isCooldown) return; // Skip if on cooldown
+
+        if (x.gameObject.CompareTag("Boss Attack"))
+        {
+            minusHeart();
+            StartCoroutine(CooldownRoutine());
+        }
+    }
+
+    private IEnumerator CooldownRoutine()
+    {
+        isCooldown = true; // Activate cooldown
+        yield return new WaitForSeconds(3f); // Wait for 3 seconds
+        isCooldown = false; // Reset cooldown
+    }
+
+    private void minusHeart()
+    {
+        if (heartContainer.transform.childCount != 0)
+        {
+            Transform child = heartContainer.transform.GetChild(0);
+            Destroy(child.gameObject);
+            if (PlayerPrefs.GetInt(vibrateKey, 0) == 0)
+            {
+                Handheld.Vibrate();
+            }
         }
     }
 }
