@@ -102,6 +102,10 @@ public class ArcherMovement : MonoBehaviour
             minusHeart();
             StartCoroutine(CooldownRoutine());
         }
+
+        if(x.gameObject.CompareTag("Obstacle")){
+            ChangeDirection();
+        }
     }
 
     private IEnumerator CooldownRoutine()
