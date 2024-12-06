@@ -8,6 +8,7 @@ TagManager:
   - Arrows
   - Boss Attack
   - Obstacle
+  - Water
   layers:
   - Default
   - TransparentFX
