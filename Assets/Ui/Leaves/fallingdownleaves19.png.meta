@@ -1,0 +1,767 @@
+fileFormatVersion: 2
+guid: 72af76adf9a76ed439426b5305446c08
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5955854454683496992
+    second: fallingdownleaves19_0
+  - first:
+      213: -3025609567555200025
+    second: fallingdownleaves19_1
+  - first:
+      213: -6576945432617972258
+    second: fallingdownleaves19_2
+  - first:
+      213: 2885949038687566015
+    second: fallingdownleaves19_3
+  - first:
+      213: 5244859165143785215
+    second: fallingdownleaves19_4
+  - first:
+      213: 84017031048512251
+    second: fallingdownleaves19_5
+  - first:
+      213: 1337485076092233663
+    second: fallingdownleaves19_6
+  - first:
+      213: 4006831374483006024
+    second: fallingdownleaves19_7
+  - first:
+      213: -3601129600288542267
+    second: fallingdownleaves19_8
+  - first:
+      213: 6289864595358178544
+    second: fallingdownleaves19_9
+  - first:
+      213: -8575441417403652844
+    second: fallingdownleaves19_10
+  - first:
+      213: -4349953202162715172
+    second: fallingdownleaves19_11
+  - first:
+      213: -1745347374861845061
+    second: fallingdownleaves19_12
+  - first:
+      213: 3243281115993750915
+    second: fallingdownleaves19_13
+  - first:
+      213: -5196163841551534164
+    second: fallingdownleaves19_14
+  - first:
+      213: 5641374269431629311
+    second: fallingdownleaves19_15
+  - first:
+      213: -7757207147228318898
+    second: fallingdownleaves19_16
+  - first:
+      213: -2712467989413635086
+    second: fallingdownleaves19_17
+  - first:
+      213: 511280535955752441
+    second: fallingdownleaves19_18
+  - first:
+      213: 5821307080423127948
+    second: fallingdownleaves19_19
+  - first:
+      213: 7681744316913596334
+    second: fallingdownleaves19_20
+  - first:
+      213: -5955213291926551479
+    second: fallingdownleaves19_21
+  - first:
+      213: 9170597000817740425
+    second: fallingdownleaves19_22
+  - first:
+      213: 6346500242220087561
+    second: fallingdownleaves19_23
+  - first:
+      213: -3000948793905661361
+    second: fallingdownleaves19_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: fallingdownleaves19_0
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 147
+        width: 43
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ed89aecded885da0800000000000000
+      internalID: -5955854454683496992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fallingdownleaves19_1
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 148
+        width: 40
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7eb59d0f020e206d0800000000000000
+      internalID: -3025609567555200025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fallingdownleaves19_2
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 129
+        width: 41
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edd8da5a9fef9b4a0800000000000000
+      internalID: -6576945432617972258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fallingdownleaves19_3
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 143
+        width: 40
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb83ada3c53fc0820800000000000000
+      internalID: 2885949038687566015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fallingdownleaves19_4
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 110
+        width: 45
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffed85b4f9b79c840800000000000000
+      internalID: 5244859165143785215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fallingdownleaves19_5
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 110
+        width: 41
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf2caba6b0d7a2100800000000000000
+      internalID: 84017031048512251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fallingdownleaves19_6
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 125
+        width: 44
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb72dd42793bf8210800000000000000
+      internalID: 1337485076092233663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fallingdownleaves19_7
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 123
+        width: 41
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84223fee7ef1b9730800000000000000
+      internalID: 4006831374483006024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fallingdownleaves19_8
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 103
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c138a845b7360ec0800000000000000
+      internalID: -3601129600288542267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fallingdownleaves19_9
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 98
+        width: 31
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fc51ab36861a4750800000000000000
+      internalID: 6289864595358178544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fallingdownleaves19_10
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 101
+        width: 44
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 415ab7b2779edf880800000000000000
+      internalID: -8575441417403652844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fallingdownleaves19_11
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 60
+        width: 39
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd5b4831c9cd1a3c0800000000000000
+      internalID: -4349953202162715172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fallingdownleaves19_12
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 64
+        width: 42
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbdf2bf4fc747c7e0800000000000000
+      internalID: -1745347374861845061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fallingdownleaves19_13
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 67
+        width: 35
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38d3a89cdf2720d20800000000000000
+      internalID: 3243281115993750915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fallingdownleaves19_14
+      rect:
+        serializedVersion: 2
+        x: 1063
+        y: 74
+        width: 38
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca7779d348483e7b0800000000000000
+      internalID: -5196163841551534164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fallingdownleaves19_15
+      rect:
+        serializedVersion: 2
+        x: 1130
+        y: 56
+        width: 44
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff5408e32003a4e40800000000000000
+      internalID: 5641374269431629311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fallingdownleaves19_16
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 46
+        width: 41
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e43b554f23dd85490800000000000000
+      internalID: -7757207147228318898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fallingdownleaves19_17
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 46
+        width: 43
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fbd1622cb06b5ad0800000000000000
+      internalID: -2712467989413635086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fallingdownleaves19_18
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 30
+        width: 41
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f5c63640fe681700800000000000000
+      internalID: 511280535955752441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fallingdownleaves19_19
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 31
+        width: 35
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8b361172ff69c050800000000000000
+      internalID: 5821307080423127948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fallingdownleaves19_20
+      rect:
+        serializedVersion: 2
+        x: 823
+        y: 23
+        width: 40
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea7b201b1c90b9a60800000000000000
+      internalID: 7681744316913596334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fallingdownleaves19_21
+      rect:
+        serializedVersion: 2
+        x: 1027
+        y: 37
+        width: 44
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94488052015da5da0800000000000000
+      internalID: -5955213291926551479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fallingdownleaves19_22
+      rect:
+        serializedVersion: 2
+        x: 1208
+        y: 42
+        width: 42
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98a01046261844f70800000000000000
+      internalID: 9170597000817740425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fallingdownleaves19_23
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 18
+        width: 38
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9097578585c431850800000000000000
+      internalID: 6346500242220087561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fallingdownleaves19_24
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 24
+        width: 40
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4abd1eb8fc7a56d0800000000000000
+      internalID: -3000948793905661361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      fallingdownleaves19_0: -5955854454683496992
+      fallingdownleaves19_1: -3025609567555200025
+      fallingdownleaves19_10: -8575441417403652844
+      fallingdownleaves19_11: -4349953202162715172
+      fallingdownleaves19_12: -1745347374861845061
+      fallingdownleaves19_13: 3243281115993750915
+      fallingdownleaves19_14: -5196163841551534164
+      fallingdownleaves19_15: 5641374269431629311
+      fallingdownleaves19_16: -7757207147228318898
+      fallingdownleaves19_17: -2712467989413635086
+      fallingdownleaves19_18: 511280535955752441
+      fallingdownleaves19_19: 5821307080423127948
+      fallingdownleaves19_2: -6576945432617972258
+      fallingdownleaves19_20: 7681744316913596334
+      fallingdownleaves19_21: -5955213291926551479
+      fallingdownleaves19_22: 9170597000817740425
+      fallingdownleaves19_23: 6346500242220087561
+      fallingdownleaves19_24: -3000948793905661361
+      fallingdownleaves19_3: 2885949038687566015
+      fallingdownleaves19_4: 5244859165143785215
+      fallingdownleaves19_5: 84017031048512251
+      fallingdownleaves19_6: 1337485076092233663
+      fallingdownleaves19_7: 4006831374483006024
+      fallingdownleaves19_8: -3601129600288542267
+      fallingdownleaves19_9: 6289864595358178544
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

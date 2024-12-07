@@ -100,11 +100,11 @@ public class GolemBossBehavior : MonoBehaviour
         // Returns the name of the animation parameter for each attack
         switch (attackIndex)
         {
-            case 0: return "Golem_Bullet";
-            case 1: return "Golem_Charge";
-            case 2: return "Golem_Crystal";
-            case 3: return "Golem_Shield";
-            case 4: return "Golem_Slam";
+            case 0: Debug.Log("Golem_Bullet"); return "Golem_Bullet";
+            case 1: Debug.Log("Golem_Charge"); return "Golem_Charge";
+            case 2: Debug.Log("Golem_Crystal"); return "Golem_Crystal";
+            case 3: Debug.Log("Golem_Shield"); return "Golem_Shield";
+            case 4: Debug.Log("Golem_Slam"); return "Golem_Slam";
             default: return "Golem_Idle";
         }
     }
