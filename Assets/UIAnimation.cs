@@ -16,6 +16,11 @@ public class UIAnimation : MonoBehaviour
         if(panel == "confirm"){
             transform.localScale = Vector2.zero;
         }
+
+        if(panel == "result"){
+            transform.localPosition = new Vector2(0f, Screen.height);
+            transform.LeanMoveLocalY(0, 0.3f).setEaseOutBack().setIgnoreTimeScale(true).delay = 0.1f;
+        }
     }
 
     public void Open(){
@@ -40,7 +45,8 @@ public class UIAnimation : MonoBehaviour
     }
 
     public void Close(){
-        backdrop.GetComponent<CanvasGroup>().LeanAlpha(0, 0.5f).setIgnoreTimeScale(true);
+        backdrop.GetComponent<CanvasGroup>().LeanAlpha(0, 0.5f).setIgnoreTimeScale(true).setOnComplete(disableBackdrop);
+
 
         if(panel == "info"){
             transform.LeanMoveLocalY(Screen.height, 0.4f).setEaseInBack().setIgnoreTimeScale(true);
@@ -55,6 +61,9 @@ public class UIAnimation : MonoBehaviour
         }
 
 
+    }
+
+    void disableBackdrop(){
         backdrop.SetActive(false);
     }
 

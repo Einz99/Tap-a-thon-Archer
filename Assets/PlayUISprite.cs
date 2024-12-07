@@ -29,11 +29,12 @@ public class PlayUISprite : MonoBehaviour
     public void playAnimation(string type){
         anim_type = type;
         StartCoroutine(StartAnim());
+        
     }
 
     public IEnumerator StartAnim()
     {
-        
+
         if(anim_type == "close"){
             yield return new WaitForSeconds(0.5f);
             Debug.Log("playing anim");
@@ -44,16 +45,43 @@ public class PlayUISprite : MonoBehaviour
 
         while(isDone)
         {
+            Debug.Log("Start anim");
             yield return new WaitForSeconds(0.05f);
             index++;
             if(index >= sprites.Count){
+                Debug.Log("Stop anim");
                 index = 0;
                 isDone = false;
                 gameObject.SetActive(false);
             }else{
+                Debug.Log("Play anim");
                 image.sprite = sprites[index];
             }
         }
+    }
+
+    [SerializeField] public bool onLoop;
+
+    public void stopLoopedAnimation(){
+        onLoop =  false;
+    }
+
+    public void playLoopedAnimaion(){
+        onLoop = true;
+        StartCoroutine(startLoopedAnimation());
+    }
+
+    public IEnumerator startLoopedAnimation(){
+        while(onLoop)
+            {
+                yield return new WaitForSeconds(animSpeed);
+                index++;
+                if(index >= sprites.Count){
+                    index = 0;
+                }else{
+                    image.sprite = sprites[index];
+                }
+            }
     }
 
 }

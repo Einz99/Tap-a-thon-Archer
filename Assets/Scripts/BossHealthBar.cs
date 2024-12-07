@@ -12,6 +12,9 @@ public class BossHealthBar : MonoBehaviour
     public GameObject winningPage;
     public FightCalculation FC;
     private int firsthit;
+
+    public GameObject confetti;
+
     
     private void Start()
     {
@@ -55,6 +58,8 @@ public class BossHealthBar : MonoBehaviour
                 Time.timeScale = 0;
                 pause.SetActive(false);
                 winningPage.SetActive(true);
+                confetti.SetActive(true);
+                confetti.GetComponent<PlayUISprite>().playAnimation("open");
             }
         }
     }
