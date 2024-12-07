@@ -2366,6 +2366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Archer: {fileID: 1055322955}
+  PC: {fileID: 1780478779}
   cooldownTime: 2
 --- !u!114 &324391918
 MonoBehaviour:
@@ -22048,6 +22049,7 @@ MonoBehaviour:
   MaxHealth: 0
   attackPower: 0
   spawnRate: 0
+  HoldingSR: 0
   attackSpeed: 0
   moveSpeed: 0
   criticalMultiplier: 0

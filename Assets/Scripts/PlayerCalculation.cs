@@ -5,6 +5,7 @@ public class PlayerCalculation : MonoBehaviour
     public int MaxHealth;
     public float attackPower;
     public float spawnRate;
+    public float HoldingSR;
     public float attackSpeed;
     public float moveSpeed;
     public float criticalMultiplier;
@@ -37,6 +38,7 @@ public class PlayerCalculation : MonoBehaviour
         attackPower = 10 + (2 * PlayerPrefs.GetInt(attackPowerKey, 0));
         attackSpeed = 1 + (0.1f * PlayerPrefs.GetInt(attackSpeedKey, 0));
         spawnRate = 1 - (.03f * PlayerPrefs.GetInt(attackSpeedKey, 0));
+        HoldingSR = 0.015f * PlayerPrefs.GetInt(attackSpeedKey, 0);
         moveSpeed = 1.5f + (0.2f * PlayerPrefs.GetInt(moveSpeedKey, 0));
         criticalMultiplier = 1.5f + (0.2f * PlayerPrefs.GetInt(critMultKey, 0));
         criticalChance = 10 + (2 * PlayerPrefs.GetInt(critChanceKey, 0));

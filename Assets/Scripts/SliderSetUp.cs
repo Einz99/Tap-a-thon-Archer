@@ -9,7 +9,7 @@ public class SliderSetUp : MonoBehaviour
     void Start()
     {
         _slider.onValueChanged.AddListener((v) => {
-            _textSlider.text = (v * 100).ToString("0");
+            _textSlider.text = (v).ToString("0");
         });
     }
 

@@ -6,8 +6,8 @@ public class HoldingScript : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     public GameObject Archer; // Reference to the Archer GameObject
     private ArcherMovement AM;
     private ArrowSpawn AS;
-
-    public float cooldownTime = 2f; // Cooldown duration for releasing the button
+    public PlayerCalculation PC;
+    public float cooldownTime = 1f; // Cooldown duration for releasing the button
     private bool isOnCooldown = false;
 
     void Start()
@@ -15,11 +15,13 @@ public class HoldingScript : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         // Cache references to required components
         AM = Archer.GetComponent<ArcherMovement>();
         AS = Archer.GetComponent<ArrowSpawn>();
+        cooldownTime -= PC.spawnRate + PC.HoldingSR;
     }
 
     // Called when the button is pressed
     public void OnPointerDown(PointerEventData eventData)
     {
+        AM.isHolding = true;       // Enable holding
         if (isOnCooldown)
         {
             Debug.Log("Cannot activate AS.checkHolding(true) - still on cooldown!");
@@ -27,21 +29,21 @@ public class HoldingScript : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         }
 
         Debug.Log("Button press started!");
-        AM.isHolding = true;       // Enable holding
         AS.checkHolding(true);     // Trigger holding action
     }
 
     // Called when the button is released
     public void OnPointerUp(PointerEventData eventData)
     {
+        
+        AM.isHolding = false;       // Disable holding
         if (isOnCooldown)
         {
             Debug.Log("Release ignored - action is still on cooldown.");
             return;
         }
-
+        AS.checkHolding(false);
         Debug.Log("Button press released!");
-        AM.isHolding = false;       // Disable holding
         StartCooldown();            // Start cooldown
     }
 

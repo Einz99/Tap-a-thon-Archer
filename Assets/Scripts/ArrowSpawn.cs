@@ -8,10 +8,12 @@ public class ArrowSpawn : MonoBehaviour
     public PlayerCalculation PC;
     public BossHealthBar BHB;
     private float spawnRate;
+    private float holdingSR;
     private void Start()
     {   
         spawnRate = PC.spawnRate;
         checkHolding(false);
+        holdingSR = PC.HoldingSR;
     }
     
     
@@ -20,9 +22,11 @@ public class ArrowSpawn : MonoBehaviour
         if(isHolding)
         {
             CancelInvoke(nameof(checkCrit));
+            InvokeRepeating(nameof(checkCrit), 0f, spawnRate - holdingSR);
         }
         else
         {
+            CancelInvoke(nameof(checkCrit));
             InvokeRepeating(nameof(checkCrit), 0f, spawnRate);
         }
     }

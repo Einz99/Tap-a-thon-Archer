@@ -28,6 +28,7 @@ public class SettingsScriptLoading : MonoBehaviour
         vibrate.GetComponent<Toggle>().ToggleValue = PlayerPrefs.GetInt(vibrateKey, 0) == 1;
         musicLevel.GetComponent<Slider>().value = PlayerPrefs.GetFloat(musicLevelKey, 100);
         sfxLevel.GetComponent<Slider>().value = PlayerPrefs.GetFloat(sfxLevelKey, 100);
+        Debug.Log(musicLevel.value);
         musicValue.text = PlayerPrefs.GetFloat(musicLevelKey, 100).ToString();
         sfxValue.text = PlayerPrefs.GetFloat(sfxLevelKey, 100).ToString();
     }
