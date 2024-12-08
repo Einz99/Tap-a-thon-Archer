@@ -58,8 +58,6 @@ public class BossHealthBar : MonoBehaviour
         }
     }
 
-    public string name;
-
     private void HealthCalculations()
     {
     
@@ -73,9 +71,9 @@ public class BossHealthBar : MonoBehaviour
             currentHealth -= damage;
             
             sfx.play_SFX(sfx.ARROW_HIT);
-            if(name == "bear"){sfx.play_SFX(sfx.BEAR_DAMAGED);}
-            if(name == "slime"){sfx.play_SFX(sfx.SLIME_DAMAGED);}
-            if(name == "golem"){sfx.play_SFX(sfx.GOLEM_DAMAGED);}
+            if(name == "Beary Boss"){sfx.play_SFX(sfx.BEAR_DAMAGED);}
+            if(name == "Slime"){sfx.play_SFX(sfx.SLIME_DAMAGED);}
+            if(name == "Golem Boss"){sfx.play_SFX(sfx.GOLEM_DAMAGED);}
 
             float percentage = 100 - ((currentHealth / MaxHealth) * 100);
             BossHp.value = percentage;

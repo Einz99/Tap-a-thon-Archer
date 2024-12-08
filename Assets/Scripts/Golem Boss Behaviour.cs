@@ -158,7 +158,7 @@ public class GolemBossBehavior : MonoBehaviour
         }
         if (attackIndex == 3)
         {
-
+            GolemShilded(attackIndex);
         }
         else if (attackIndex == 4)
         {

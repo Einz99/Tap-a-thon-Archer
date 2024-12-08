@@ -1797,7 +1797,6 @@ MonoBehaviour:
   confetti: {fileID: 1291662339}
   onDefense: 0
   sfx: {fileID: 125038721}
-  name: 
 --- !u!4 &188360321
 Transform:
   m_ObjectHideFlags: 0
@@ -1828,10 +1827,10 @@ MonoBehaviour:
   animator: {fileID: 188360326}
   skillPrefabs:
   - {fileID: 2431265155136010378, guid: 4f03882d372d568448e09c6decac58e1, type: 3}
-  - {fileID: 5193332132947024558, guid: 0cc5e620b3c217845b70282c815de6a6, type: 3}
+  - {fileID: 5763876050271158921, guid: c0406362dd759274282581ff945367de, type: 3}
   - {fileID: 4855647827708773460, guid: d65e756d7c56da14ea265eef4f41c71c, type: 3}
   - {fileID: 6217483322053468261, guid: 48c1379e543dfc043ab27df30ac9e213, type: 3}
-  - {fileID: 5022674144607715311, guid: c5b97194ecd662f4e9d9ff0752efbf99, type: 3}
+  - {fileID: 6315479376264313681, guid: 944cf4c11c61f814b83596ecc0ef62ea, type: 3}
   - {fileID: 3910224313940525039, guid: ff266ca54e309d94486ac45e03233b40, type: 3}
   - {fileID: 8699887375194898998, guid: 5375874e969830349a7ca8116a583b4c, type: 3}
   - {fileID: 6816347165835744205, guid: 0bde1cc058cd41a43b4ee3cf56d595f6, type: 3}
