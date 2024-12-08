@@ -388,13 +388,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1641965253}
-        m_TargetAssemblyTypeName: UIAnimation, Assembly-CSharp
-        m_MethodName: Close
-        m_Mode: 1
+      - m_Target: {fileID: 1973102438}
+        m_TargetAssemblyTypeName: MasterVolume, Assembly-CSharp
+        m_MethodName: play_SFX
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 8300000, guid: 646b5402223e0ef4a8aa801bbc1c9d36, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -410,6 +410,30 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1641965253}
+        m_TargetAssemblyTypeName: UIAnimation, Assembly-CSharp
+        m_MethodName: Close
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: close
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 126743658}
+        m_TargetAssemblyTypeName: PlayUISprite, Assembly-CSharp
+        m_MethodName: setObjectType
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: leaves
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 126743658}
@@ -474,6 +498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9472d222ece124a8c27df800c5400c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfx: {fileID: 1973102438}
 --- !u!114 &43584034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -952,6 +977,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 72af76adf9a76ed439426b5305446c08, type: 3}
   - {fileID: 21300000, guid: fb3dc987681d9db43b9b5635b58c0ab5, type: 3}
   animSpeed: 1
+  object_type: 
+  sfx: {fileID: 1973102438}
   onLoop: 0
 --- !u!114 &126743659
 MonoBehaviour:
@@ -1306,6 +1333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: info
   backdrop: {fileID: 708655623}
+  sfx: {fileID: 1973102438}
 --- !u!1 &274022196
 GameObject:
   m_ObjectHideFlags: 0
@@ -1734,6 +1762,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b86d51c3db068ab42af474ff1ef28e51, type: 3}
   - {fileID: 21300000, guid: 1c0e7c341ffa59c4da7f97f5e87b8f5d, type: 3}
   animSpeed: 0.1
+  object_type: 
+  sfx: {fileID: 0}
   onLoop: 0
 --- !u!114 &410333129
 MonoBehaviour:
@@ -2301,6 +2331,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1973102438}
+        m_TargetAssemblyTypeName: MasterVolume, Assembly-CSharp
+        m_MethodName: play_SFX
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 646b5402223e0ef4a8aa801bbc1c9d36, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1907840036}
         m_TargetAssemblyTypeName: UIAnimation, Assembly-CSharp
         m_MethodName: Close
@@ -2408,6 +2450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9472d222ece124a8c27df800c5400c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfx: {fileID: 1973102438}
 --- !u!1 &685616516
 GameObject:
   m_ObjectHideFlags: 0
@@ -2624,7 +2667,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2979,6 +3022,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: 
   backdrop: {fileID: 0}
+  sfx: {fileID: 0}
 --- !u!1 &889602579
 GameObject:
   m_ObjectHideFlags: 0
@@ -3108,6 +3152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9472d222ece124a8c27df800c5400c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfx: {fileID: 1973102438}
 --- !u!114 &910075660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3209,6 +3254,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1973102438}
+        m_TargetAssemblyTypeName: MasterVolume, Assembly-CSharp
+        m_MethodName: play_SFX
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 646b5402223e0ef4a8aa801bbc1c9d36, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1171341835}
         m_TargetAssemblyTypeName: UIAnimation, Assembly-CSharp
         m_MethodName: Close
@@ -3231,6 +3288,42 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 126743656}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 126743658}
+        m_TargetAssemblyTypeName: PlayUISprite, Assembly-CSharp
+        m_MethodName: setObjectType
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: leaves
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 126743658}
+        m_TargetAssemblyTypeName: PlayUISprite, Assembly-CSharp
+        m_MethodName: playAnimation
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: close
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &910075662
@@ -3520,6 +3613,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1973102438}
+        m_TargetAssemblyTypeName: MasterVolume, Assembly-CSharp
+        m_MethodName: play_SFX
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 646b5402223e0ef4a8aa801bbc1c9d36, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &961870560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3630,6 +3735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9472d222ece124a8c27df800c5400c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfx: {fileID: 1973102438}
 --- !u!1 &970986963
 GameObject:
   m_ObjectHideFlags: 0
@@ -4164,13 +4270,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 247258075}
-        m_TargetAssemblyTypeName: UIAnimation, Assembly-CSharp
-        m_MethodName: Close
-        m_Mode: 1
+      - m_Target: {fileID: 1973102438}
+        m_TargetAssemblyTypeName: MasterVolume, Assembly-CSharp
+        m_MethodName: play_SFX
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 8300000, guid: 646b5402223e0ef4a8aa801bbc1c9d36, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4186,6 +4292,30 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 247258075}
+        m_TargetAssemblyTypeName: UIAnimation, Assembly-CSharp
+        m_MethodName: Close
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: close
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 126743658}
+        m_TargetAssemblyTypeName: PlayUISprite, Assembly-CSharp
+        m_MethodName: setObjectType
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: leaves
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 126743658}
@@ -4295,6 +4425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9472d222ece124a8c27df800c5400c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfx: {fileID: 1973102438}
 --- !u!1 &1150679662
 GameObject:
   m_ObjectHideFlags: 0
@@ -4874,6 +5005,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: settings
   backdrop: {fileID: 708655623}
+  sfx: {fileID: 1973102438}
 --- !u!114 &1171341836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18786,13 +18918,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1641965253}
-        m_TargetAssemblyTypeName: UIAnimation, Assembly-CSharp
-        m_MethodName: Open
-        m_Mode: 1
+      - m_Target: {fileID: 1973102438}
+        m_TargetAssemblyTypeName: MasterVolume, Assembly-CSharp
+        m_MethodName: play_SFX
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 8300000, guid: 646b5402223e0ef4a8aa801bbc1c9d36, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -18820,6 +18952,30 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1641965253}
+        m_TargetAssemblyTypeName: UIAnimation, Assembly-CSharp
+        m_MethodName: Open
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: open
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 126743658}
+        m_TargetAssemblyTypeName: PlayUISprite, Assembly-CSharp
+        m_MethodName: setObjectType
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: leaves
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 126743658}
@@ -18944,6 +19100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9472d222ece124a8c27df800c5400c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfx: {fileID: 1973102438}
 --- !u!1 &1491104514
 GameObject:
   m_ObjectHideFlags: 0
@@ -28230,13 +28387,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 247258075}
-        m_TargetAssemblyTypeName: UIAnimation, Assembly-CSharp
-        m_MethodName: Open
-        m_Mode: 1
+      - m_Target: {fileID: 1973102438}
+        m_TargetAssemblyTypeName: MasterVolume, Assembly-CSharp
+        m_MethodName: play_SFX
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 8300000, guid: 646b5402223e0ef4a8aa801bbc1c9d36, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -28264,6 +28421,30 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 126743658}
+        m_TargetAssemblyTypeName: PlayUISprite, Assembly-CSharp
+        m_MethodName: setObjectType
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: leaves
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 247258075}
+        m_TargetAssemblyTypeName: UIAnimation, Assembly-CSharp
+        m_MethodName: Open
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: open
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 126743658}
@@ -28388,6 +28569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9472d222ece124a8c27df800c5400c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfx: {fileID: 1973102438}
 --- !u!1 &1597794120
 GameObject:
   m_ObjectHideFlags: 0
@@ -28888,6 +29070,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: info
   backdrop: {fileID: 708655623}
+  sfx: {fileID: 1973102438}
 --- !u!1 &1645733434
 GameObject:
   m_ObjectHideFlags: 0
@@ -29061,6 +29244,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1973102438}
+        m_TargetAssemblyTypeName: MasterVolume, Assembly-CSharp
+        m_MethodName: play_SFX
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 646b5402223e0ef4a8aa801bbc1c9d36, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1907840036}
         m_TargetAssemblyTypeName: UIAnimation, Assembly-CSharp
         m_MethodName: Open
@@ -29071,7 +29266,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 708655623}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
@@ -29195,6 +29390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9472d222ece124a8c27df800c5400c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfx: {fileID: 1973102438}
 --- !u!1 &1674814013
 GameObject:
   m_ObjectHideFlags: 0
@@ -29293,13 +29489,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 708655623}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1973102438}
+        m_TargetAssemblyTypeName: MasterVolume, Assembly-CSharp
+        m_MethodName: play_SFX
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 8300000, guid: 646b5402223e0ef4a8aa801bbc1c9d36, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -29315,6 +29511,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 126743658}
+        m_TargetAssemblyTypeName: PlayUISprite, Assembly-CSharp
+        m_MethodName: setObjectType
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: leaves
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 126743658}
@@ -29344,6 +29552,18 @@ MonoBehaviour:
       - m_Target: {fileID: 410333128}
         m_TargetAssemblyTypeName: PlayUISprite, Assembly-CSharp
         m_MethodName: playLoopedAnimaion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2090241546}
+        m_TargetAssemblyTypeName: Toggle, Assembly-CSharp
+        m_MethodName: CheckStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -29463,6 +29683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9472d222ece124a8c27df800c5400c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfx: {fileID: 1973102438}
 --- !u!1 &1704336822
 GameObject:
   m_ObjectHideFlags: 0
@@ -29783,6 +30004,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1973102438}
+        m_TargetAssemblyTypeName: MasterVolume, Assembly-CSharp
+        m_MethodName: play_SFX
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 646b5402223e0ef4a8aa801bbc1c9d36, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1714662276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29878,6 +30111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9472d222ece124a8c27df800c5400c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfx: {fileID: 1973102438}
 --- !u!1 &1720639235
 GameObject:
   m_ObjectHideFlags: 0
@@ -43927,6 +44161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: confirm
   backdrop: {fileID: 708655623}
+  sfx: {fileID: 1973102438}
 --- !u!1 &1910599455
 GameObject:
   m_ObjectHideFlags: 0
@@ -45693,7 +45928,17 @@ MonoBehaviour:
   BACKSTORY: {fileID: 0}
   INGAME: {fileID: 8300000, guid: 7cb07ad9543d6c44b88ced5a8bec053c, type: 3}
   SHOP: {fileID: 0}
-  CLICK: {fileID: 0}
+  CLICK: {fileID: 8300000, guid: 646b5402223e0ef4a8aa801bbc1c9d36, type: 3}
+  HOVER: {fileID: 8300000, guid: a42a06b13c1d72c4ab7cb96ba66cf973, type: 3}
+  GOLD: {fileID: 8300000, guid: 0f29f840d7b406c468fbf6bfc603f19a, type: 3}
+  PAUSE_RESUME: {fileID: 0}
+  GAME_OVER: {fileID: 8300000, guid: 8b6c02ab5c8773c4aaba2cbfa17b39f4, type: 3}
+  PROMPT_POP: {fileID: 8300000, guid: 4799a6b4fd285bc49ae90e88e5763e5a, type: 3}
+  WOOD: {fileID: 8300000, guid: c1b2a998271ad7e4289976fdea4fb18a, type: 3}
+  LEAVES: {fileID: 8300000, guid: 4f21154addf30d04cb116487ae1d47f2, type: 3}
+  SWOOSH: {fileID: 8300000, guid: 38f5a404956cae147b5948bcea611242, type: 3}
+  TAP: {fileID: 0}
+  HOLD: {fileID: 0}
   musicVolume: 0
   sfxVolume: 0
   musicLevel: {fileID: 1166809893}
@@ -45917,6 +46162,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1973102438}
+        m_TargetAssemblyTypeName: MasterVolume, Assembly-CSharp
+        m_MethodName: play_SFX
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 646b5402223e0ef4a8aa801bbc1c9d36, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2030518528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45932,6 +46189,7 @@ MonoBehaviour:
   ToggleValue: 1
   mute_button: {fileID: 0}
   unmute_button: {fileID: 0}
+  master: {fileID: 0}
   pressed_unmute_button:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -45984,6 +46242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9472d222ece124a8c27df800c5400c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfx: {fileID: 1973102438}
 --- !u!114 &2030518531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46157,6 +46416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9472d222ece124a8c27df800c5400c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfx: {fileID: 1973102438}
 --- !u!114 &2090241545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46217,6 +46477,7 @@ MonoBehaviour:
   ToggleValue: 0
   mute_button: {fileID: -3311114313877805598, guid: e0b0a4b8eff311c498312970c9601900, type: 3}
   unmute_button: {fileID: 1414210354977102215, guid: f8cff4970b1181d4f9b1f64888f27a99, type: 3}
+  master: {fileID: 1973102438}
   pressed_unmute_button:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 8242622823429068648, guid: ea6d1e5dcf904194e86f8d668000ff64, type: 3}
@@ -46247,7 +46508,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1414210354977102215, guid: f8cff4970b1181d4f9b1f64888f27a99, type: 3}
+  m_Sprite: {fileID: -3311114313877805598, guid: e0b0a4b8eff311c498312970c9601900, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -46295,7 +46556,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 8242622823429068648, guid: ea6d1e5dcf904194e86f8d668000ff64, type: 3}
+    m_PressedSprite: {fileID: -1288551862, guid: e0b0a4b8eff311c498312970c9601900, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -46316,6 +46577,30 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1973102438}
+        m_TargetAssemblyTypeName: MasterVolume, Assembly-CSharp
+        m_MethodName: play_SFX
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 646b5402223e0ef4a8aa801bbc1c9d36, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1973102433}
+        m_TargetAssemblyTypeName: MasterVolume, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

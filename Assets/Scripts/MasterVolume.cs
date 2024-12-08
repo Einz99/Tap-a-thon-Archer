@@ -21,9 +21,33 @@ public class MasterVolume : MonoBehaviour
     public AudioClip INGAME;
     public AudioClip SHOP;
 
-    [Header("-------SFX Clips-------")]
+    [Header("-------SFX UI Clips-------")]
 
     public AudioClip CLICK;
+    
+    public AudioClip HOVER;
+
+    public AudioClip GOLD;
+
+    public AudioClip PAUSE_RESUME;
+
+    public AudioClip GAME_OVER;
+
+    public AudioClip PROMPT_POP;
+
+    public AudioClip WOOD;
+
+    public AudioClip LEAVES;
+
+    [Header("-------SFX GAME OBJECT Clips-------")]
+
+    public AudioClip SWOOSH;
+
+    public AudioClip TAP;
+
+    public AudioClip HOLD;
+
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -59,7 +83,7 @@ public class MasterVolume : MonoBehaviour
 
     }
 
-    void play_SFX(AudioClip clip)
+    public void play_SFX(AudioClip clip)
     {
         SFX.PlayOneShot(clip);
     }
@@ -88,9 +112,35 @@ public class MasterVolume : MonoBehaviour
     public void SetSFXVolume()
     {
         sfxVolume = sfx_slider.value / 100;
-        Master.SetFloat("sfx", Mathf.Log10(sfxVolume) * 20);
+        if (sfxVolume == 0)
+        {
+            Master.SetFloat("sfx", -80f); // Set to the lowest dB value (effectively silent)
+        }
+        else
+        {
+           Master.SetFloat("sfx", Mathf.Log10(sfxVolume) * 20);
+        }
+        
     }
 
+
+    public void MuteAll(){
+        music_slider.value = 0;
+        sfx_slider.value = 0;
+
+
+        // musicVolume = 0f;
+        // sfx_volume = 0f;
+
+        // Master.SetFloat("music", Mathf.Log10(musicVolume) * 20);
+        // Master.SetFloat("sfx", Mathf.Log10(sfxVolume) * 20);
+    }
+
+    public void UnmuteAll(){
+        music_slider.value = 100;
+        sfx_slider.value = 100;
+
+    }
 
 
     [SerializeField] private TextMeshProUGUI musicLevel;

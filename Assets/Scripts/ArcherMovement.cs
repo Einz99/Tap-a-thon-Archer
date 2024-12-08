@@ -71,6 +71,7 @@ public class ArcherMovement : MonoBehaviour
         Time.timeScale = 0;
         pause.SetActive(false);
         LosingPage.SetActive(true);
+        LosingPage.GetComponent<PlayUISprite>().playAnimation("open");
     }
 
     if (isHolding) return;

@@ -25,28 +25,38 @@ public class PlayUISprite : MonoBehaviour
 
     private string anim_type;
 
+    public string object_type;
 
     public void playAnimation(string type){
         anim_type = type;
         StartCoroutine(StartAnim());
-        
+
     }
+
+    public void setObjectType(string type){
+        object_type =  type;
+    }
+
+    public MasterVolume sfx;
 
     public IEnumerator StartAnim()
     {
 
         if(anim_type == "close"){
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSecondsRealtime(0.5f);
             Debug.Log("playing anim");
             anim_type = "open";
         }
         
+        if(object_type == "leaves"){
+            sfx.play_SFX(sfx.LEAVES);
+        }
         isDone = true;
 
         while(isDone)
         {
             Debug.Log("Start anim");
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSecondsRealtime(0.05f);
             index++;
             if(index >= sprites.Count){
                 Debug.Log("Stop anim");
@@ -74,7 +84,7 @@ public class PlayUISprite : MonoBehaviour
     public IEnumerator startLoopedAnimation(){
         while(onLoop)
             {
-                yield return new WaitForSeconds(animSpeed);
+                yield return new WaitForSecondsRealtime(animSpeed);
                 index++;
                 if(index >= sprites.Count){
                     index = 0;

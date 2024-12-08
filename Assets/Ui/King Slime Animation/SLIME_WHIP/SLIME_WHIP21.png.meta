@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SLIME_WHIP21_0: 5238954155681134263
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
