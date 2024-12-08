@@ -31,23 +31,74 @@ public class MasterVolume : MonoBehaviour
 
     public AudioClip PAUSE_RESUME;
 
-    public AudioClip GAME_OVER;
-
     public AudioClip PROMPT_POP;
 
     public AudioClip WOOD;
 
     public AudioClip LEAVES;
 
+    public AudioClip GAME_OVER;
+
+    public AudioClip VICTORY;
+
     [Header("-------SFX GAME OBJECT Clips-------")]
 
     public AudioClip SWOOSH;
-
     public AudioClip TAP;
-
     public AudioClip HOLD;
+    public AudioClip PLAYER_DAMAGED;
 
+    [Header("-------SFX BEAR -------")]
+    public AudioClip BEAR_CLAW;
+    public AudioClip BEAR_KICK;
+    public AudioClip BEAR_STOMP;
+    public AudioClip BEAR_THROW;
+    public AudioClip BEAR_TRANSFORM;
+    public AudioClip BEAR_DAMAGED;
+
+    [Header("-------SFX GOLEM -------")]
+    public AudioClip GOLEM_CHARGE;
+    public AudioClip GOLEM_STOMP_1;
+    public AudioClip GOLEM_STOMP_2;
+    public AudioClip GOLEM_TRANSFORM;
+    public AudioClip GOLEM_DAMAGED;
+
+    [Header("-------SFX SLIME -------")]
+    public AudioClip SLIME_WHIP;
+    public AudioClip SLIME_SHOOT;
+    public AudioClip SLIME_BLOW;
+    public AudioClip SLIME_RIPPLE;
+    public AudioClip SLIME_BOUNCE;
+    public AudioClip SLIME_TRANSFORM;
+    public AudioClip SLIME_DAMAGED;
+
+    [Header("-------SFX PROJECTILES -------")]
+
+    public AudioClip ARROW_HIT;
+    public AudioClip SHOOTING_ARROW;
+
+    public AudioClip CRIT_ARROW;
+
+    public AudioClip BOW_CHARGE;
     
+
+    public AudioClip WIND_CLAW;
+    public AudioClip BULLET_ROCK;
+    public AudioClip MEGA_ROCK;
+    public AudioClip ROCK_MAGMA;
+    public AudioClip BIG_MAGMA;
+    public AudioClip FIRE_CLAW;
+    public AudioClip GROUND_SHOCKWAVE;
+
+    public AudioClip FLOATING_ROCK;
+    public AudioClip ROCK_SHIELD;
+    public AudioClip CRYSTAL_SPIKE;
+
+
+    public AudioClip SLIME_SPLASH;
+    public AudioClip SLIME_BULLET;
+    public AudioClip BUBBLE_POP;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

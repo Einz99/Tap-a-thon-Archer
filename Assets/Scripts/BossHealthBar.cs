@@ -20,6 +20,8 @@ public class BossHealthBar : MonoBehaviour
     private bool enableP2 = true;
     private const string difficultyKey = "difficulty";
 
+    public MasterVolume sfx;
+
     private void Start()
     {
         MaxHealth = FC.Health;
@@ -56,9 +58,11 @@ public class BossHealthBar : MonoBehaviour
         }
     }
 
+    public string name;
+
     private void HealthCalculations()
     {
-
+    
         if (currentHealth > damage)
         {
             if (onDefense)
@@ -67,6 +71,12 @@ public class BossHealthBar : MonoBehaviour
             }
 
             currentHealth -= damage;
+            
+            sfx.play_SFX(sfx.ARROW_HIT);
+            if(name == "bear"){sfx.play_SFX(sfx.BEAR_DAMAGED);}
+            if(name == "slime"){sfx.play_SFX(sfx.SLIME_DAMAGED);}
+            if(name == "golem"){sfx.play_SFX(sfx.GOLEM_DAMAGED);}
+
             float percentage = 100 - ((currentHealth / MaxHealth) * 100);
             BossHp.value = percentage;
         }
@@ -89,6 +99,7 @@ public class BossHealthBar : MonoBehaviour
                 Time.timeScale = 0;
                 pause.SetActive(false);
                 winningPage.SetActive(true);
+                sfx.play_SFX(sfx.VICTORY);
                 confetti.SetActive(true);
                 confetti.GetComponent<PlayUISprite>().playAnimation("open");
             }

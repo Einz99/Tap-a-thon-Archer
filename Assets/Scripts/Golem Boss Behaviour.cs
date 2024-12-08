@@ -21,6 +21,9 @@ public class GolemBossBehavior : MonoBehaviour
     public bool phase2 = false;
     private bool stayP2 = true;
     public BossHealthBar Bossbar;
+
+    public MasterVolume SFX;
+
     void Start()
     {
         // Set animation speed based on difficulty stored in PlayerPrefs
@@ -273,6 +276,8 @@ public class GolemBossBehavior : MonoBehaviour
             attackIndex += 5;
         }
         GameObject shockwave = Instantiate(skillPrefabs[attackIndex], new Vector2(0f, -1f), Quaternion.identity);
+        SFX.play_SFX(SFX.GOLEM_CHARGE);
+
         StartCoroutine(Bossbar.DefenseTimer(duration));
         Destroy(shockwave, 5f);
     }
@@ -322,7 +327,7 @@ public class GolemBossBehavior : MonoBehaviour
     private void SpawnProjectilesInLines(int attackIndex, Vector3[] directions)
     {
         int numProjectiles = 5; // Number of projectiles per direction
-
+        SFX.play_SFX(SFX.GOLEM_STOMP_1);
         // Spawn projectiles in each of the 8 directions
         foreach (var direction in directions)
         {
@@ -333,7 +338,7 @@ public class GolemBossBehavior : MonoBehaviour
     private IEnumerator SpawnMultipleProjectiles(Vector3 direction, int attackIndex, int numProjectiles)
     {
         float delay = 0.5f; // Delay between each projectile spawn
-
+        SFX.play_SFX(SFX.GOLEM_STOMP_2);
         // Spawn 5 projectiles in the given direction
         for (int i = 0; i < numProjectiles; i++)
         {

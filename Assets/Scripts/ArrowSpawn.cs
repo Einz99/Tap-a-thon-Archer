@@ -9,6 +9,9 @@ public class ArrowSpawn : MonoBehaviour
     public BossHealthBar BHB;
     private float spawnRate;
     private float holdingSR;
+
+    public MasterVolume sfx;
+
     private void Start()
     {   
         spawnRate = PC.spawnRate;
@@ -23,6 +26,7 @@ public class ArrowSpawn : MonoBehaviour
         {
             CancelInvoke(nameof(checkCrit));
             InvokeRepeating(nameof(checkCrit), 0f, spawnRate - holdingSR);
+            // sfx.play_SFX(sfx.BOW_CHARGE);
         }
         else
         {
@@ -37,11 +41,14 @@ public class ArrowSpawn : MonoBehaviour
         if(randomCrit > PC.criticalChance)
         {
             SpawnRegPrefab();
+            sfx.play_SFX(sfx.SHOOTING_ARROW);
             BHB.damage = PC.attackPower;
         }
         else
         {
             SpawnCritPrefab();
+            sfx.play_SFX(sfx.SHOOTING_ARROW);
+            sfx.play_SFX(sfx.CRIT_ARROW);
             BHB.damage = PC.attackPower * PC.criticalMultiplier;
         }
     }

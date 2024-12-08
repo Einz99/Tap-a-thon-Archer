@@ -19,7 +19,7 @@ public class PlayUISprite : MonoBehaviour
 
     public Image image;
     public List<Sprite> sprites;
-    public float animSpeed = 0.1f;
+    public float animSpeed;
     private int index;
     private bool isDone;
 

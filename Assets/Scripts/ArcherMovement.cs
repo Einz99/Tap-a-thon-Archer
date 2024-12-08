@@ -20,6 +20,9 @@ public class ArcherMovement : MonoBehaviour
     private bool isCooldown = false; // Flag to track cooldown
     public GameObject pause;
     public GameObject LosingPage;
+
+    public MasterVolume sfx;
+
     void Start()
     {
         int randomIndex = 0;
@@ -117,6 +120,8 @@ public class ArcherMovement : MonoBehaviour
 
 public void ChangeDirection()
 {
+    sfx.play_SFX(sfx.SWOOSH);
+
     // Flip the direction immediately when the button is pressed
     currentDirect = !currentDirect;
 
@@ -163,6 +168,8 @@ public void ChangeDirection()
         if (heartContainer.transform.childCount != 0)
         {
             Transform child = heartContainer.transform.GetChild(0);
+            
+            sfx.play_SFX(sfx.PLAYER_DAMAGED);
             Destroy(child.gameObject);
             if (PlayerPrefs.GetInt(vibrateKey, 0) == 0)
             {
