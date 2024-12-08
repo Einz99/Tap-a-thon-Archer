@@ -22,8 +22,16 @@ public class ArcherMovement : MonoBehaviour
     public GameObject LosingPage;
     void Start()
     {
+        int randomIndex = 0;
         moveSpeed = PC.moveSpeed;
-        int randomIndex = Random.Range(0, orbitShapes.Length);
+        int random5percent = Random.Range (0, 101);
+        if (random5percent <= 96){
+            randomIndex = Random.Range(0, orbitShapes.Length-1);
+        }
+        else
+        {
+            randomIndex = 6;
+        }
         selectedShape = Instantiate(
             orbitShapes[randomIndex],
             new Vector3(0, -1, 0),

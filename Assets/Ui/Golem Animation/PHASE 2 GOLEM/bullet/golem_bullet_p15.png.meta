@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      golem_bullet_p15_0: -2757589343985236607
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

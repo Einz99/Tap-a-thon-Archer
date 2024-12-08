@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      crystalmagma_0: -6340321832845311707
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

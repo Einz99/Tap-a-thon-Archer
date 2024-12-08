@@ -124,6 +124,10 @@ public class BossHealthBar : MonoBehaviour
         {
             gameObject.GetComponent<GolemBossBehavior>().phase2 = true;
         }
+        if (gameObject.name == "Slime")
+        {
+            gameObject.GetComponent<SlimeBossBehavior>().phase2 = true;
+        }
         isInvulnerable = true;
         Debug.Log("Boss is now invulnerable!");
 

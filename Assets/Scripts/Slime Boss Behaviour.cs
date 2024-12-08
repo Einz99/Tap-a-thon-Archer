@@ -18,6 +18,8 @@ public class SlimeBossBehavior : MonoBehaviour
     public FightCalculation FC;
     private int difficulty;
     private const string difficultyKey = "difficulty";
+    public bool phase2 = false;
+    private bool stayP2 = true;
     void Start()
     {
         // Set animation speed based on difficulty stored in PlayerPrefs
@@ -49,6 +51,23 @@ public class SlimeBossBehavior : MonoBehaviour
             isAttacking = true;
             StartCoroutine(AttackSequence());
         }
+
+        // Check if phase2 is activated and handle the transformation animation
+        if (phase2 && stayP2)
+        {
+            StartCoroutine(HandlePhase2Transformation());
+            stayP2 = false;
+        }
+    }
+
+    private IEnumerator HandlePhase2Transformation()
+    {
+        // Start the transformation animation
+        animator.SetBool("Slimey_Transform", true);
+        yield return new WaitForSeconds(2f); // Wait for the transformation animation duration
+
+        // Switch to the idle animation after the transformation
+        animator.SetBool("Slimey_Transform", false);
     }
 
     private IEnumerator AttackSequence()
@@ -57,7 +76,8 @@ public class SlimeBossBehavior : MonoBehaviour
         if ((BHB.value > 50f && ultcheck == 0) || (BHB.value > 75f && ultcheck == 1))
         {
             ActivateAttack(4); // Ultimate
-            ultcheck++;
+            ultcheck += 1;
+            Debug.Log("test");
         }
         else
         {
@@ -78,6 +98,10 @@ public class SlimeBossBehavior : MonoBehaviour
 
     private void ActivateAttack(int attackIndex)
     {
+        if (phase2)
+        {
+            attackIndex += 5;
+        }
         // Trigger animation
         string animationName = GetAnimationName(attackIndex);
         animator.SetBool(animationName, true);
@@ -100,17 +124,26 @@ public class SlimeBossBehavior : MonoBehaviour
         // Returns the name of the animation parameter for each attack
         switch (attackIndex)
         {
-            case 0: return "Slime_Bullet";
-            case 1: return "Slime_Splash";
-            case 2: return "Slime_Crystal";
-            case 3: return "Golem_Shield";
-            case 4: return "Golem_Slam";
-            default: return "Slime_Idle";
+            case 0: return "Slimey_Tentacles";
+            case 1: return "Slimey_Barrage";
+            case 2: return "Slimey_Trapper";
+            case 3: return "Slimey_Bubble";
+            case 4: return "Slimey_Ripples";
+            case 5: return "P2Slimey_Tentacles";
+            case 6: return "P2Slimey_Barrage";
+            case 7: return "P2Slimey_Trapper";
+            case 8: return "P2Slimey_Bubble";
+            case 9: return "P2Slimey_Ripples";
+            default: return "Bear";
         }
     }
 
     private void SpawnPrefab(int attackIndex)
     {
+        if (phase2)
+        {
+            attackIndex -= 5;
+        }
         // Ultimate will spawn multiple prefabs in a shotgun pattern
         if (attackIndex < 2)
         {
@@ -126,7 +159,7 @@ public class SlimeBossBehavior : MonoBehaviour
         }
         else if (attackIndex == 4)
         {
-            StartCoroutine(SpawnUltimateAttack());
+            StartCoroutine(SpawnUltimateAttack(attackIndex));
         }
     }
 
@@ -134,8 +167,13 @@ public class SlimeBossBehavior : MonoBehaviour
     {
         int numProjectiles = 5; // Number of projectiles in the shotgun
         float spreadAngle = 120f; // Total spread angle
+        if (phase2)
+        {
+            numProjectiles = 8;
+            spreadAngle = 150f;
+            attackIndex += 5;
+        }
         float halfAngle = spreadAngle / 2f;
-
         for (int i = 0; i < numProjectiles; i++)
         {
             // Calculate random angle within the spread
@@ -162,6 +200,12 @@ public class SlimeBossBehavior : MonoBehaviour
         if (difficulty == 1) speedLesser = 0.5f;
         if (difficulty == 2) speedLesser = 1.5f;
         if (difficulty == 3) speedLesser = 2.5f;
+        float homeDuration = 3f;
+        if (phase2)
+        {
+            homeDuration = 5f;
+            attackIndex += 5;
+        }
         // Spawn the projectile directly in front of the boss
         GameObject projectile = Instantiate(skillPrefabs[attackIndex], bossPosition.position, Quaternion.identity);
 
@@ -169,7 +213,7 @@ public class SlimeBossBehavior : MonoBehaviour
         HomingProjectile homingProjectile = projectile.AddComponent<HomingProjectile>();
         homingProjectile.target = playerPosition;
         homingProjectile.speed = AttackSpeed - speedLesser; // Adjust speed as necessary
-        homingProjectile.homingDuration = 3f; // Time for the projectile to follow the target
+        homingProjectile.homingDuration = homeDuration; // Time for the projectile to follow the target
         homingProjectile.destroyAfter = 30f; // Time before the projectile self-destructs
     }
 
@@ -178,7 +222,13 @@ public class SlimeBossBehavior : MonoBehaviour
         int numPrefabs = 8; // Number of prefabs to spawn
         float distanceBetween = 1f; // Distance between each prefab
         float spawnDelay = 0.5f; // Delay between each spawn (1 or 1.5 seconds)
-        for (int j = 0; j < 2; j++)
+        int numbOfLines = 2;
+        if (phase2)
+        {
+            numbOfLines = 4;
+            attackIndex += 5;
+        }
+        for (int j = 0; j < numbOfLines; j++)
         {
             Vector3 direction = (playerPosition.position - bossPosition.position).normalized;
             for (int i = 0; i < numPrefabs; i++)
@@ -191,7 +241,7 @@ public class SlimeBossBehavior : MonoBehaviour
 
                 // Optionally, orient the prefab to face the player
                 float angleToFace = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-                stompPrefab.transform.rotation = Quaternion.Euler(0f, 0f, angleToFace);
+                stompPrefab.transform.rotation = Quaternion.Euler(0f, 0f, angleToFace - 90f);
 
                 // Destroy the prefab after 3 seconds
                 Destroy(stompPrefab, 3f);
@@ -202,49 +252,108 @@ public class SlimeBossBehavior : MonoBehaviour
         }
     }
 
-    private IEnumerator SpawnUltimateAttack()
+    private IEnumerator SpawnUltimateAttack(int attackIndex)
     {
-        // Step 1: Spawn the warning prefab around the boss
         float warningDuration = 2f; // Duration the warning stays visible
-        float warningRadius = 4f; // Radius around the boss where warnings will spawn
-        List<GameObject> warningPrefabs = new List<GameObject>(); // Store the warning prefab instances
-        List<Vector3> warningPositions = new List<Vector3>(); // Store the positions for ultimate spawns
+        float distanceBetween = 2f; // Distance between prefabs along the line
+        float lineOffset = .1f; // Offset between parallel lines
+        int numRows = 1; // Number of rows (wave segments) per line
+        float waveDelay = 0.1f; // Delay between each wave (row spawn)
+        List<GameObject> warningPrefabs = new List<GameObject>(); // Store warning prefab instances
+        List<Vector3> warningPositions = new List<Vector3>(); // Store final spawn positions
 
-        // Randomly spawn multiple warning prefabs around the boss and store their positions
-        for (int i = 0; i < 10; i++) // 10 warning prefabs, adjust as needed
+        // Choose one pattern
+        int pattern = Random.Range(0, 101); // 0 = 4 quadrants, 1 = horizontal + vertical
+        if (pattern <= 50)
         {
-            Vector3 randomPosition = bossPosition.position +
-                                     new Vector3(Random.insideUnitCircle.x, Random.insideUnitCircle.y, 0f) * warningRadius;
-
-            GameObject warningPrefab = Instantiate(warning, randomPosition, Quaternion.identity);
-            warningPrefabs.Add(warningPrefab); // Store the prefab instance
-            warningPositions.Add(randomPosition); // Store the spawn position for later
+            yield return SpawnWaveLines(warningPrefabs, warningPositions, numRows, distanceBetween, lineOffset, true, waveDelay);
+        }
+        else
+        {
+            yield return SpawnWaveLines(warningPrefabs, warningPositions, numRows, distanceBetween, lineOffset, false, waveDelay);
         }
 
-        // Wait for the warning duration
+        // Wait for warnings to clear
         yield return new WaitForSeconds(warningDuration);
 
-        // Step 2: Destroy all warning prefabs after the warning duration
+        // Destroy warnings
         foreach (GameObject warningPrefab in warningPrefabs)
         {
-            Destroy(warningPrefab); // Destroy the warning prefab
+            Destroy(warningPrefab);
         }
 
-        // Step 3: Spawn the ultimate skill prefabs at the same positions as the warnings
+        // Spawn projectiles at the warning positions
         foreach (Vector3 position in warningPositions)
         {
-            GameObject ultimatePrefab = Instantiate(skillPrefabs[4], position, Quaternion.identity);
-
-            // Optionally, orient the prefab to face the player or any other direction
-            Vector3 direction = (playerPosition.position - position).normalized;
+            GameObject ultimatePrefab = Instantiate(skillPrefabs[attackIndex], position, Quaternion.identity);
+            Vector3 direction = (position - bossPosition.position).normalized;
             float angleToFace = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            ultimatePrefab.transform.rotation = Quaternion.Euler(0f, 0f, angleToFace);
+            ultimatePrefab.transform.rotation = Quaternion.Euler(0f, 0f, angleToFace - 90f);
+            ultimatePrefab.GetComponent<Rigidbody2D>().linearVelocity = direction * AttackSpeed;
+            Destroy(ultimatePrefab, 4f);
+        }
+    }
 
-            // Destroy the ultimate prefab after a few seconds
-            Destroy(ultimatePrefab, 2f); // Destroy the ultimate prefab after 2 seconds (adjust as needed)
+    private IEnumerator SpawnWaveLines(
+    List<GameObject> warningPrefabs,
+    List<Vector3> warningPositions,
+    int numRows,
+    float distanceBetween,
+    float lineOffset,
+    bool isQuadrantMode,
+    float waveDelay
+)
+    {
+        // Define the direction vectors for the quadrants
+        Vector3[] baseDirections = isQuadrantMode
+            ? new Vector3[]
+              {
+              (Vector3.up + Vector3.right).normalized,   // Top-right
+              (Vector3.up + Vector3.left).normalized,    // Top-left
+              (Vector3.down + Vector3.right).normalized, // Bottom-right
+              (Vector3.down + Vector3.left).normalized   // Bottom-left
+              }
+            : new Vector3[]
+              {
+              Vector3.up,    // Vertical (upward)
+              Vector3.down,  // Vertical (downward)
+              Vector3.right, // Horizontal (rightward)
+              Vector3.left   // Horizontal (leftward)
+              };
+
+        // Step 1: Generate Warning Positions
+        foreach (Vector3 baseDirection in baseDirections)
+        {
+            for (int row = 0; row < numRows; row++) // Wave rows
+            {
+                for (int line = -1; line <= 1; line++) // Three lines: -1 (left/top), 0 (center), 1 (right/bottom)
+                {
+                    // Calculate line offset
+                    Vector3 offsetDirection = Vector3.Cross(baseDirection, Vector3.forward).normalized;
+                    Vector3 lineOffsetVector = offsetDirection * line * lineOffset;
+
+                    // Calculate warning impact position
+                    Vector3 impactPosition = bossPosition.position +
+                                             baseDirection * distanceBetween * (row + 1) +
+                                             lineOffsetVector;
+
+                    // Store the warning position for projectiles later
+                    warningPositions.Add(impactPosition);
+
+                    // Instantiate warning prefab
+                    GameObject warningPrefab = Instantiate(warning, impactPosition, Quaternion.identity);
+
+                    // Store the warning instance for destruction later
+                    warningPrefabs.Add(warningPrefab);
+                }
+
+                // Wait between rows to create the wave effect
+                yield return new WaitForSeconds(waveDelay);
+            }
         }
 
-        // Wait for the ultimate prefabs to finish their effect and destroy
-        yield return new WaitForSeconds(3f); // Wait for the ultimate prefabs to be destroyed
+        // Wait for warnings to clear before spawning wave projectiles
+        yield return null; // Return control after warnings are generated
     }
+
 }

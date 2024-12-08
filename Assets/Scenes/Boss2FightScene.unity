@@ -5107,6 +5107,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ToggleValue: 1
+  mute_button: {fileID: 0}
+  unmute_button: {fileID: 0}
+  pressed_unmute_button:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  pressed_mute_button:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
 --- !u!114 &779524889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8845,6 +8857,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ToggleValue: 0
+  mute_button: {fileID: 0}
+  unmute_button: {fileID: 0}
+  pressed_unmute_button:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  pressed_mute_button:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
 --- !u!114 &1299178124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9219,6 +9243,7 @@ MonoBehaviour:
   winningPage: {fileID: 1578900414}
   FC: {fileID: 52430119}
   confetti: {fileID: 0}
+  onDefense: 0
 --- !u!4 &1314532155
 Transform:
   m_ObjectHideFlags: 0
@@ -9228,7 +9253,7 @@ Transform:
   m_GameObject: {fileID: 1314532153}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.22, y: -0.74, z: 0}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9440,16 +9465,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1314532159}
   skillPrefabs:
-  - {fileID: 3661918675559800083, guid: c60b46815b47c1842acc714c5d0391be, type: 3}
-  - {fileID: 2431265155136010378, guid: 4f03882d372d568448e09c6decac58e1, type: 3}
+  - {fileID: 1623889075759259505, guid: 943e8dabfc8fa39438fa5ecad2e9f3e1, type: 3}
+  - {fileID: 8204881647824008849, guid: 192d7b31fc1aab347a859b1cbf8b1085, type: 3}
   - {fileID: 5022674144607715311, guid: c5b97194ecd662f4e9d9ff0752efbf99, type: 3}
-  - {fileID: 4855647827708773460, guid: d65e756d7c56da14ea265eef4f41c71c, type: 3}
-  - {fileID: 5022674144607715311, guid: c5b97194ecd662f4e9d9ff0752efbf99, type: 3}
+  - {fileID: 684990291692659259, guid: c72eacb9c3a895648a8455e62660dbcf, type: 3}
+  - {fileID: 1026061790731458674, guid: 7bd71d81635ab3042930b5689688924d, type: 3}
+  - {fileID: 5736315790487896311, guid: 9be9ebe0951e3414cb60f559f1433f98, type: 3}
+  - {fileID: 8204881647824008849, guid: 192d7b31fc1aab347a859b1cbf8b1085, type: 3}
+  - {fileID: 1055270194984788120, guid: a7101cec2af948b4b86917ac7007a87c, type: 3}
+  - {fileID: 684990291692659259, guid: c72eacb9c3a895648a8455e62660dbcf, type: 3}
+  - {fileID: 1026061790731458674, guid: 7bd71d81635ab3042930b5689688924d, type: 3}
   warning: {fileID: 5900037023127448076, guid: 78333ee991a3a9f47aa727b00705cf2d, type: 3}
   bossPosition: {fileID: 1314532155}
   playerPosition: {fileID: 1692812236}
   BHB: {fileID: 1556627749}
   FC: {fileID: 52430119}
+  phase2: 0
 --- !u!1 &1318716477
 GameObject:
   m_ObjectHideFlags: 0
@@ -11755,10 +11786,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f48883426ff1f24c802c49ff0117960, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orbitShapes: []
+  orbitShapes:
+  - {fileID: 4419108600282201050, guid: 652bcb23893f4a440a4aabc2c8750392, type: 3}
+  - {fileID: 6170115621762210295, guid: 3f6e46fddc398fa47a4c2dcd52a9df3a, type: 3}
+  - {fileID: 6481214390953670361, guid: 76a963270b69f034abd8b8dde3cbfb45, type: 3}
+  - {fileID: 6213046825777381687, guid: 8c546c08c9659064285960189f228b0d, type: 3}
+  - {fileID: 1027534229659554977, guid: 172bde12d65e6424da23290eeec982cf, type: 3}
+  - {fileID: 8647253363047460177, guid: 725172ca08169544fa182c3a7390f890, type: 3}
+  - {fileID: 6230446101484216690, guid: 3ae3786ce0d49244991ff7ca32b654e1, type: 3}
   moveSpeed: 2
   currentDirect: 0
-  boss: {fileID: 0}
+  boss: {fileID: 1314532155}
   isHolding: 0
   PC: {fileID: 196392762}
   heartContainer: {fileID: 1965794565}
@@ -14023,7 +14061,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e17a7efccb381584caeeaf95e36f4507, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

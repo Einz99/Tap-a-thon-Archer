@@ -6026,9 +6026,14 @@ MonoBehaviour:
   orbitShapes:
   - {fileID: 4419108600282201050, guid: 652bcb23893f4a440a4aabc2c8750392, type: 3}
   - {fileID: 6170115621762210295, guid: 3f6e46fddc398fa47a4c2dcd52a9df3a, type: 3}
+  - {fileID: 6481214390953670361, guid: 76a963270b69f034abd8b8dde3cbfb45, type: 3}
+  - {fileID: 6213046825777381687, guid: 8c546c08c9659064285960189f228b0d, type: 3}
+  - {fileID: 1027534229659554977, guid: 172bde12d65e6424da23290eeec982cf, type: 3}
+  - {fileID: 8647253363047460177, guid: 725172ca08169544fa182c3a7390f890, type: 3}
+  - {fileID: 6230446101484216690, guid: 3ae3786ce0d49244991ff7ca32b654e1, type: 3}
   moveSpeed: 2
   currentDirect: 0
-  boss: {fileID: 0}
+  boss: {fileID: 1348218418}
   isHolding: 0
   PC: {fileID: 1475671564}
   heartContainer: {fileID: 1331253277}
@@ -20846,6 +20851,7 @@ MonoBehaviour:
   winningPage: {fileID: 1074605849}
   FC: {fileID: 2110100094}
   confetti: {fileID: 1792890302}
+  onDefense: 0
 --- !u!60 &1348218414
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -21687,6 +21693,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ToggleValue: 1
+  mute_button: {fileID: 0}
+  unmute_button: {fileID: 0}
+  pressed_unmute_button:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  pressed_mute_button:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
 --- !u!114 &1790441700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23123,6 +23141,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ToggleValue: 0
+  mute_button: {fileID: 0}
+  unmute_button: {fileID: 0}
+  pressed_unmute_button:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  pressed_mute_button:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
 --- !u!114 &1939307129
 MonoBehaviour:
   m_ObjectHideFlags: 0
