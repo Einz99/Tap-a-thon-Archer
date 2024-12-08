@@ -140,41 +140,61 @@ public class ShoppingScript : MonoBehaviour
         {
             case "Attack Power":
                 slider.value = maxLevel - PlayerPrefs.GetInt(attackPowerKey, 0);
-                leveltxt.text = "Level " + level;
+                leveltxt.text = "LVL. " + level;
                 break;
             case "Attack Speed":
                 slider.value = maxLevel - PlayerPrefs.GetInt(attackSpeedKey, 0);
-                leveltxt.text = "Level " + level;
+                leveltxt.text = "LVL. " + level;
                 break;
             case "Critical Multiplier":
                 slider.value = maxLevel - PlayerPrefs.GetInt(critMultKey, 0);
-                leveltxt.text = "Level " + level;
+                leveltxt.text = "LVL. " + level;
                 break;
             case "Critical Chance":
                 slider.value = maxLevel - PlayerPrefs.GetInt(critChanceKey, 0);
-                leveltxt.text = "Level " + level;
+                leveltxt.text = "LVL. " + level;
                 break;
             case "Max Health":
                 slider.value = maxLevel - PlayerPrefs.GetInt(maxHealthKey, 0);
-                leveltxt.text = "Level " + level;
+                leveltxt.text = "LVL. " + level;
                 break;
             case "Movement Speed":
                 slider.value = maxLevel - PlayerPrefs.GetInt(moveSpeedKey, 0);
-                leveltxt.text = "Level " + level;
+                leveltxt.text = "LVL. " + level;
                 break;
             case "Gold Multiplier":
                 slider.value = maxLevel - PlayerPrefs.GetInt(goldMultKey, 0);
-                leveltxt.text = "Level " + level;
+                leveltxt.text = "LVL. " + level;
                 break;
             
         }
     }
+
+    public Sprite insufficient_image;
+    public Sprite max_image;
+
+
+
     private void Update()
     {
-        costtxt.text = prices[level].ToString();
-        if (level > maxLevel-1 || Gold < prices[level])
+        if(prices[level] == 0){
+            costtxt.text = "MAX";
+        }else{
+            costtxt.text = prices[level].ToString();
+        }
+
+        if (level > maxLevel-1)
+        {
+
+            button.GetComponent<Image>().sprite = max_image;
+            button.interactable = false;
+            return;
+        }
+
+        if (Gold < prices[level])
         {
             button.interactable = false;
+            button.GetComponent<Image>().sprite = insufficient_image;
             return;
         }
     }

@@ -185,7 +185,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bear_buttslam11_0: -1455310410806290514
+      bear_buttslam11_1: -8198495620692899595
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

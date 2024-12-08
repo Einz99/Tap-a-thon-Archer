@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bear_kick9_0: 8176017449317437030
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

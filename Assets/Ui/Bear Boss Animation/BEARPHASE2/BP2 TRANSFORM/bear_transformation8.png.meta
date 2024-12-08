@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bear_transformation8_0: 4463879660605806331
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

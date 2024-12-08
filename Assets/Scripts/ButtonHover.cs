@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ButtonHover : MonoBehaviour
 {
@@ -9,11 +10,27 @@ public class ButtonHover : MonoBehaviour
     }
 
     public void PointerEnter(){
-        transform.LeanScale(new Vector2(1.1f, 1.1f), 0.2f).setEaseOutBack().setIgnoreTimeScale(true);
+        if(transform.GetComponent<Button>().interactable){
+            transform.LeanScale(new Vector2(1.1f, 1.1f), 0.2f).setEaseOutBack().setIgnoreTimeScale(true);
+        }
     }
 
     public void PointerExit(){
-        transform.LeanScale(new Vector2(1f, 1f), 0.2f).setEaseInBack().setIgnoreTimeScale(true);
+        if(transform.GetComponent<Button>().interactable){
+            transform.LeanScale(new Vector2(1f, 1f), 0.2f).setEaseInBack().setIgnoreTimeScale(true);
+        }
+    }
+
+    public void HandlePointerEnter(){
+
+            transform.LeanScale(new Vector2(1.1f, 1.1f), 0.2f).setEaseOutBack().setIgnoreTimeScale(true);
+        
+    }
+
+    public void HandlePointerExit(){
+     
+            transform.LeanScale(new Vector2(1f, 1f), 0.2f).setEaseInBack().setIgnoreTimeScale(true);
+        
     }
 
     // Update is called once per frame
