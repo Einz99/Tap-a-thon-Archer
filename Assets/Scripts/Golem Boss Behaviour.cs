@@ -20,6 +20,7 @@ public class GolemBossBehavior : MonoBehaviour
     private const string difficultyKey = "difficulty";
     public bool phase2 = false;
     private bool stayP2 = true;
+    public BossHealthBar Bossbar;
     void Start()
     {
         // Set animation speed based on difficulty stored in PlayerPrefs
@@ -63,11 +64,11 @@ public class GolemBossBehavior : MonoBehaviour
     private IEnumerator HandlePhase2Transformation()
     {
         // Start the transformation animation
-        animator.SetBool("Beary_Transform", true);
+        animator.SetBool("Golem_Transformation", true);
         yield return new WaitForSeconds(2f); // Wait for the transformation animation duration
 
         // Switch to the idle animation after the transformation
-        animator.SetBool("Beary_Transform", false);
+        animator.SetBool("Golem_Transformation", false);
     }
 
     private IEnumerator AttackSequence()
@@ -123,16 +124,16 @@ public class GolemBossBehavior : MonoBehaviour
         // Returns the name of the animation parameter for each attack
         switch (attackIndex)
         {
-            case 0: Debug.Log("Golem_Bullet"); return "Golem_Bullet";
-            case 1: Debug.Log("Golem_Charge"); return "Golem_Charge";
-            case 2: Debug.Log("Golem_Crystal"); return "Golem_Crystal";
-            case 3: Debug.Log("Golem_Shield"); return "Golem_Shield";
-            case 4: Debug.Log("Golem_Slam"); return "Golem_Slam";
-            case 5: Debug.Log("Golem_Bullet"); return "Golem_Bullet";
-            case 6: Debug.Log("Golem_Charge"); return "Golem_Charge";
-            case 7: Debug.Log("Golem_Crystal"); return "Golem_Crystal";
-            case 8: Debug.Log("Golem_Shield"); return "Golem_Shield";
-            case 9: Debug.Log("Golem_Slam"); return "Golem_Slam";
+            case 0: return "Golem_Bullet";
+            case 1: return "Golem_Slam";
+            case 2: return "Golem_Charge";
+            case 3: return "Golem_Shield";
+            case 4: return "Golem_Crystal";
+            case 5: return "P2Golem_Bullet";
+            case 6: return "P2Golem_Slam";
+            case 7: return "P2Golem_Charge";
+            case 8: return "P2Golem_Shield";
+            case 9: return "P2Golem_Crystal";
             default: return "Golem_Idle";
         }
     }
@@ -150,11 +151,11 @@ public class GolemBossBehavior : MonoBehaviour
         }
         if (attackIndex == 2)
         {
-            
+            SpawnRocksInCircle(attackIndex);
         }
         if (attackIndex == 3)
         {
-            
+
         }
         else if (attackIndex == 4)
         {
@@ -192,57 +193,165 @@ public class GolemBossBehavior : MonoBehaviour
         }
     }
 
-    
+    private void SpawnRocksInCircle(int attackIndex)
+    {
+        int numberOfRocks = 10;
+        if (phase2)
+        {
+            numberOfRocks = 17;
+            attackIndex += 5;
+        }
+        float radius = 8f;
+        List<GameObject> rocks = new List<GameObject>(); // To track spawned rocks
+
+        for (int i = 0; i < numberOfRocks; i++)
+        {
+            // Calculate position on the circle
+            float angle = Random.Range(0f, Mathf.PI * 2);
+            Vector2 spawnPosition = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * radius + (Vector2)bossPosition.position;
+
+            // Instantiate rock and add to the list
+            GameObject rock = Instantiate(skillPrefabs[attackIndex], spawnPosition, Quaternion.identity);
+            rocks.Add(rock);
+        }
+
+        // Start the movement after spawning all rocks
+        StartCoroutine(MoveRocksToTarget(rocks));
+    }
+
+    private IEnumerator MoveRocksToTarget(List<GameObject> rocks)
+    {
+        float duration = 5f;
+        Vector2 targetPosition = new Vector2(0, -1);
+        float elapsedTime = 2f;
+        Dictionary<GameObject, Vector2> startPositions = new Dictionary<GameObject, Vector2>();
+
+        // Store each rock's initial position
+        foreach (GameObject rock in rocks)
+        {
+            startPositions[rock] = rock.transform.position;
+        }
+
+        while (elapsedTime < duration)
+        {
+            foreach (GameObject rock in rocks)
+            {
+                if (rock != null)
+                {
+                    // Interpolate position
+                    Vector2 startPosition = startPositions[rock];
+                    rock.transform.position = Vector2.Lerp(startPosition, targetPosition, elapsedTime / duration);
+
+                    // Rotate the rock to face the target
+                    Vector2 direction = (targetPosition - (Vector2)rock.transform.position).normalized;
+                    float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                    rock.transform.rotation = Quaternion.Euler(0, 0, angle);
+                }
+            }
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Ensure all rocks reach the target and destroy them
+        foreach (GameObject rock in rocks)
+        {
+            if (rock != null)
+            {
+                rock.transform.position = targetPosition;
+                Destroy(rock);
+            }
+        }
+    }
+
+    public void GolemShilded(int attackIndex)
+    {
+        float duration = 20f;
+        if (phase2)
+        {
+            duration = 40f;
+            attackIndex += 5;
+        }
+        GameObject shockwave = Instantiate(skillPrefabs[attackIndex], new Vector2(0f, -1f), Quaternion.identity);
+        StartCoroutine(Bossbar.DefenseTimer(duration));
+        Destroy(shockwave, 5f);
+    }
 
     private IEnumerator SpawnUltimateAttack(int attackIndex)
     {
-        // Step 1: Spawn the warning prefab around the boss
-        float warningDuration = 2f; // Duration the warning stays visible
-        float warningRadius = 4f; // Radius around the boss where warnings will spawn
-        List<GameObject> warningPrefabs = new List<GameObject>(); // Store the warning prefab instances
-        List<Vector3> warningPositions = new List<Vector3>(); // Store the positions for ultimate spawns
-        int shockwaves = 10;
-        if (phase2)
+        if(phase2) attackIndex += 5;
+        // Define the 8 directions for spawning warning indicators and projectiles
+        Vector3[] directions = new Vector3[]
         {
-            shockwaves = 20;
-            attackIndex += 5;
+        Vector3.up, // Up
+        new Vector3(1f, 1f, 0).normalized, // Top-right diagonal
+        Vector3.right, // Right
+        new Vector3(1f, -1f, 0).normalized, // Bottom-right diagonal
+        Vector3.down, // Down
+        new Vector3(-1f, -1f, 0).normalized, // Bottom-left diagonal
+        Vector3.left, // Left
+        new Vector3(-1f, 1f, 0).normalized // Top-left diagonal
+        };
+
+        // Instantiate the warning indicators in all 8 directions
+        List<GameObject> indicators = new List<GameObject>();
+        foreach (var direction in directions)
+        {
+            // Instantiate warning at each direction, placed at a fixed distance from the boss
+            Vector3 warningPosition = bossPosition.position + direction * 5f;
+            GameObject indicator = Instantiate(warning, warningPosition, Quaternion.identity);
+            indicators.Add(indicator);
         }
 
-        // Randomly spawn multiple warning prefabs around the boss and store their positions
-        for (int i = 0; i < shockwaves; i++) // 10 warning prefabs, adjust as needed
-        {
-            Vector3 randomPosition = bossPosition.position +
-                                     new Vector3(Random.insideUnitCircle.x, Random.insideUnitCircle.y, 0f) * warningRadius;
+        // Wait for a brief moment to show the warning
+        yield return new WaitForSeconds(0.5f);
 
-            GameObject warningPrefab = Instantiate(warning, randomPosition, Quaternion.identity);
-            warningPrefabs.Add(warningPrefab); // Store the prefab instance
-            warningPositions.Add(randomPosition); // Store the spawn position for later
+        // Destroy the warning indicators before spawning the projectiles
+        foreach (var indicator in indicators)
+        {
+            Destroy(indicator); // Destroy the warning after the delay
         }
 
-        // Wait for the warning duration
-        yield return new WaitForSeconds(warningDuration);
+        // Wait a moment before the attack starts to give the player time to react
+        yield return new WaitForSeconds(0.5f);
 
-        // Step 2: Destroy all warning prefabs after the warning duration
-        foreach (GameObject warningPrefab in warningPrefabs)
+        // Spawn projectiles in the ultimate attack pattern
+        SpawnProjectilesInLines(attackIndex, directions);
+    }
+
+    private void SpawnProjectilesInLines(int attackIndex, Vector3[] directions)
+    {
+        int numProjectiles = 5; // Number of projectiles per direction
+
+        // Spawn projectiles in each of the 8 directions
+        foreach (var direction in directions)
         {
-            Destroy(warningPrefab); // Destroy the warning prefab
+            StartCoroutine(SpawnMultipleProjectiles(direction, attackIndex, numProjectiles));
         }
+    }
 
-        // Step 3: Spawn the ultimate skill prefabs at the same positions as the warnings
-        foreach (Vector3 position in warningPositions)
+    private IEnumerator SpawnMultipleProjectiles(Vector3 direction, int attackIndex, int numProjectiles)
+    {
+        float delay = 0.5f; // Delay between each projectile spawn
+
+        // Spawn 5 projectiles in the given direction
+        for (int i = 0; i < numProjectiles; i++)
         {
-            GameObject ultimatePrefab = Instantiate(skillPrefabs[attackIndex], position, Quaternion.identity);
+            // Instantiate the projectile prefab at the boss's position (center)
+            GameObject projectile = Instantiate(skillPrefabs[attackIndex], bossPosition.position, Quaternion.identity);
 
-            // Optionally, orient the prefab to face the player or any other direction
-            Vector3 direction = (playerPosition.position - position).normalized;
-            float angleToFace = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            ultimatePrefab.transform.rotation = Quaternion.Euler(0f, 0f, angleToFace);
+            // Set the direction of the projectile
+            Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.linearVelocity = direction * AttackSpeed;
+            }
 
-            // Destroy the ultimate prefab after a few seconds
-            Destroy(ultimatePrefab, 2f); // Destroy the ultimate prefab after 2 seconds (adjust as needed)
+            // Destroy the projectile after a certain duration to avoid memory leaks
+            Destroy(projectile, 3f); // Destroy after 3 seconds
+
+            // Wait for the next projectile to spawn
+            yield return new WaitForSeconds(delay);
         }
-
-        // Wait for the ultimate prefabs to finish their effect and destroy
-        yield return new WaitForSeconds(3f); // Wait for the ultimate prefabs to be destroyed
     }
 }

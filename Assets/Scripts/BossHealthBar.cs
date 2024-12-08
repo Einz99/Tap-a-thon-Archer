@@ -13,19 +13,31 @@ public class BossHealthBar : MonoBehaviour
     public GameObject winningPage;
     public FightCalculation FC;
     public GameObject confetti;
-
+    public bool onDefense = false;
+    private float defense;
     private bool isInvulnerable = false;
     private float invulnerabilityDuration = 5f;
     private bool enableP2 = true;
+    private const string difficultyKey = "difficulty";
+
+    private void Start()
+    {
+        MaxHealth = FC.Health;
+        currentHealth = FC.Health;
+        int difficulty = PlayerPrefs.GetInt(difficultyKey, 1);
+        switch (difficulty)
+        {
+            case 1: defense = 50f; break;
+            case 2: defense = 70f; break;
+            case 3: defense = 90f; break;
+            default: defense = 50f; break;
+        }
+    }
     void Update()
-    {   
-        if(extraHearts.transform.childCount == 2)
+    {
+        if (extraHearts.transform.childCount == 2)
         {
             Debug.Log("Hearts == 2");
-        }
-        if (BossHp.value == 100)
-        {
-            Debug.Log("100");
         }
         if (extraHearts.transform.childCount == 2 && !isInvulnerable && FC.isPhase2 && enableP2)
         {
@@ -35,14 +47,9 @@ public class BossHealthBar : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        MaxHealth = FC.Health;
-        currentHealth = FC.Health;
-    }
     void OnTriggerEnter2D(Collider2D x)
     {
-        
+
         if (x.gameObject.CompareTag("Arrows"))
         {
             HealthCalculations();
@@ -51,8 +58,14 @@ public class BossHealthBar : MonoBehaviour
 
     private void HealthCalculations()
     {
+
         if (currentHealth > damage)
         {
+            if (onDefense)
+            {
+                damage = ApplyDefense(damage, defense); // Modify damage with defense
+            }
+
             currentHealth -= damage;
             float percentage = 100 - ((currentHealth / MaxHealth) * 100);
             BossHp.value = percentage;
@@ -81,12 +94,35 @@ public class BossHealthBar : MonoBehaviour
             }
         }
     }
+    private float ApplyDefense(float incomingDamage, float defenseValue)
+    {
+        float damageReduction = defenseValue / 100f;
+        return incomingDamage * (1 - damageReduction);
+    }
+    public IEnumerator DefenseTimer(float duration)
+    {
+        onDefense = true;  // Enable defense
+        Debug.Log("Defense activated!");
+
+        // Wait for the specified duration
+        yield return new WaitForSeconds(duration);
+
+        // After the defense duration ends, turn off defense
+        onDefense = false;
+        Debug.Log("Defense deactivated!");
+    }
+
+
     private IEnumerator InvulnerabilityTimer()
     {
         // Make the boss invulnerable for 5 seconds
         if (gameObject.name == "Beary Boss")
         {
             gameObject.GetComponent<BossBehavior>().phase2 = true;
+        }
+        if (gameObject.name == "Golem Boss")
+        {
+            gameObject.GetComponent<GolemBossBehavior>().phase2 = true;
         }
         isInvulnerable = true;
         Debug.Log("Boss is now invulnerable!");

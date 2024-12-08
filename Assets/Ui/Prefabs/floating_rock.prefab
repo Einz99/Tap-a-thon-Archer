@@ -10,10 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2322355600836386539}
   - component: {fileID: 217871376233460940}
-  - component: {fileID: 3891608088325676637}
   - component: {fileID: -7229859451506941063}
   - component: {fileID: -6672778755332934049}
-  - component: {fileID: 8648391752615796289}
   m_Layer: 0
   m_Name: floating_rock
   m_TagString: Untagged
@@ -91,28 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &3891608088325676637
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4855647827708773460}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 079263ad9c9482a4c911b6923434abba, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!50 &-7229859451506941063
 Rigidbody2D:
   serializedVersion: 5
@@ -177,20 +153,3 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.57, y: 1}
   m_Direction: 0
---- !u!114 &8648391752615796289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4855647827708773460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e32bc6efebb8d3a49abcb2f9a90db9d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  speed: 5
-  homingDuration: 10
-  destroyAfter: 20
-  postHomingSpeedMultiplier: 5

@@ -10,7 +10,6 @@ public class FightCalculation : MonoBehaviour
     public float attackspeed;
     public float Health;
     public bool isPhase2;
-    private int weatherChance;
     public BossHealthBar BHB;
 
     void Start()
@@ -24,21 +23,18 @@ public class FightCalculation : MonoBehaviour
                 attackspeed = 1.3f;
                 Health = 300;
                 isPhase2 = false;
-                weatherChance = 0;
             break;
             case 2: 
                 extralife = 3;
                 attackspeed = 2.3f;
                 Health = 450;
                 isPhase2 = true;
-                weatherChance = 15;
             break;
             case 3: 
                 extralife = 4;
                 attackspeed = 3.3f;
                 Health = 600;
                 isPhase2 = true;
-                weatherChance = 30;
             break;
         }
         for (int i = 0; i < extralife + 1; i++)

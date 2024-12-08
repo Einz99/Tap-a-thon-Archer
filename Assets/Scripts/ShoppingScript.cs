@@ -25,7 +25,7 @@ public class ShoppingScript : MonoBehaviour
 
     private void Start()
     {
-        Gold = PlayerPrefs.GetInt(currencyKey, 100000000);
+        Gold = PlayerPrefs.GetInt(currencyKey, 0);
         GameObject.Find("Amount_txt").GetComponent<TextMeshProUGUI>().text = Gold.ToString();
         prices = new int[maxLevel + 1];
         switch (gameObject.name)

@@ -27,18 +27,7 @@ public class WinningScript : MonoBehaviour
         timeStarted = Time.timeSinceLevelLoad;
         difficulty = PlayerPrefs.GetInt(difficultyKey, 1);
         goldMult = 0 + (.05f * PlayerPrefs.GetInt(goldMultKey, 0));
-        switch (difficulty)
-        {
-            case 1:
-                expectedTime = 120;
-                ; break;
-            case 2:
-                expectedTime = 150;
-                ; break;
-            case 3:
-                expectedTime = 180;
-                ; break;
-        }
+        expectedTime = 90f;
         if (gameObject.name == "WinningPage")
         {
             baseWin = 100;

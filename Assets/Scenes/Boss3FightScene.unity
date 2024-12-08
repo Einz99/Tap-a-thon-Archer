@@ -1510,6 +1510,7 @@ MonoBehaviour:
   winningPage: {fileID: 379562101}
   FC: {fileID: 485764091}
   confetti: {fileID: 0}
+  onDefense: 0
 --- !u!4 &188360321
 Transform:
   m_ObjectHideFlags: 0
@@ -1519,7 +1520,7 @@ Transform:
   m_GameObject: {fileID: 188360319}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.22, y: -0.74, z: 0}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1540,16 +1541,22 @@ MonoBehaviour:
   animator: {fileID: 188360326}
   skillPrefabs:
   - {fileID: 2431265155136010378, guid: 4f03882d372d568448e09c6decac58e1, type: 3}
-  - {fileID: 2431265155136010378, guid: 4f03882d372d568448e09c6decac58e1, type: 3}
-  - {fileID: 5022674144607715311, guid: c5b97194ecd662f4e9d9ff0752efbf99, type: 3}
+  - {fileID: 5193332132947024558, guid: 0cc5e620b3c217845b70282c815de6a6, type: 3}
   - {fileID: 4855647827708773460, guid: d65e756d7c56da14ea265eef4f41c71c, type: 3}
-  - {fileID: 3128393524846458207, guid: e59cf42bcd96df441963924ee0120897, type: 3}
+  - {fileID: 6217483322053468261, guid: 48c1379e543dfc043ab27df30ac9e213, type: 3}
+  - {fileID: 5022674144607715311, guid: c5b97194ecd662f4e9d9ff0752efbf99, type: 3}
+  - {fileID: 3910224313940525039, guid: ff266ca54e309d94486ac45e03233b40, type: 3}
+  - {fileID: 8699887375194898998, guid: 5375874e969830349a7ca8116a583b4c, type: 3}
+  - {fileID: 6816347165835744205, guid: 0bde1cc058cd41a43b4ee3cf56d595f6, type: 3}
+  - {fileID: 6217483322053468261, guid: 48c1379e543dfc043ab27df30ac9e213, type: 3}
+  - {fileID: 1055270194984788120, guid: a7101cec2af948b4b86917ac7007a87c, type: 3}
   warning: {fileID: 5900037023127448076, guid: 78333ee991a3a9f47aa727b00705cf2d, type: 3}
   bossPosition: {fileID: 188360321}
   playerPosition: {fileID: 1055322962}
   BHB: {fileID: 1846365243}
   FC: {fileID: 485764091}
   phase2: 0
+  Bossbar: {fileID: 188360320}
 --- !u!60 &188360324
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -16639,7 +16646,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f48883426ff1f24c802c49ff0117960, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orbitShapes: []
+  orbitShapes:
+  - {fileID: 4419108600282201050, guid: 652bcb23893f4a440a4aabc2c8750392, type: 3}
+  - {fileID: 6170115621762210295, guid: 3f6e46fddc398fa47a4c2dcd52a9df3a, type: 3}
   moveSpeed: 2
   currentDirect: 0
   boss: {fileID: 0}
@@ -16824,7 +16833,7 @@ Transform:
   m_GameObject: {fileID: 1055322955}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.94, y: -0.73, z: -1}
+  m_LocalPosition: {x: -3.14, y: -2.44, z: -1}
   m_LocalScale: {x: 0.5, y: 0.5, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
