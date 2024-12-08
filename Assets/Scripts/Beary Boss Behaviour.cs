@@ -18,6 +18,8 @@ public class BossBehavior : MonoBehaviour
     public FightCalculation FC;
     private int difficulty;
     private const string difficultyKey = "difficulty";
+    public bool phase2 = false;
+    private bool stayP2 = true;
     void Start()
     {
         // Set animation speed based on difficulty stored in PlayerPrefs
@@ -49,6 +51,23 @@ public class BossBehavior : MonoBehaviour
             isAttacking = true;
             StartCoroutine(AttackSequence());
         }
+
+        // Check if phase2 is activated and handle the transformation animation
+        if (phase2 && stayP2)
+        {
+            StartCoroutine(HandlePhase2Transformation());
+            stayP2 = false;
+        }
+    }
+
+    private IEnumerator HandlePhase2Transformation()
+    {
+        // Start the transformation animation
+        animator.SetBool("Beary_Transform", true);
+        yield return new WaitForSeconds(2f); // Wait for the transformation animation duration
+
+        // Switch to the idle animation after the transformation
+        animator.SetBool("Beary_Transform", false);
     }
 
     private IEnumerator AttackSequence()
@@ -78,6 +97,10 @@ public class BossBehavior : MonoBehaviour
 
     private void ActivateAttack(int attackIndex)
     {
+        if (phase2)
+        {
+            attackIndex += 5;
+        }
         // Trigger animation
         string animationName = GetAnimationName(attackIndex);
         animator.SetBool(animationName, true);
@@ -105,12 +128,21 @@ public class BossBehavior : MonoBehaviour
             case 2: return "Beary_Stomp";
             case 3: return "Beary_Throw";
             case 4: return "Beary_Ult";
+            case 5: return "P2Beary_Claw";
+            case 6: return "P2Beary_Kick";
+            case 7: return "P2Beary_Stomp";
+            case 8: return "P2Beary_Throw";
+            case 9: return "P2Beary_Buttslam";
             default: return "Bear";
         }
     }
 
     private void SpawnPrefab(int attackIndex)
     {
+        if (phase2)
+        {
+            attackIndex -= 5;
+        }
         // Ultimate will spawn multiple prefabs in a shotgun pattern
         if (attackIndex < 2)
         {
@@ -126,7 +158,7 @@ public class BossBehavior : MonoBehaviour
         }
         else if (attackIndex == 4)
         {
-            StartCoroutine(SpawnUltimateAttack());
+            StartCoroutine(SpawnUltimateAttack(attackIndex));
         }
     }
 
@@ -134,8 +166,13 @@ public class BossBehavior : MonoBehaviour
     {
         int numProjectiles = 5; // Number of projectiles in the shotgun
         float spreadAngle = 120f; // Total spread angle
+        if (phase2)
+        {
+            numProjectiles = 8;
+            spreadAngle = 150f;
+            attackIndex += 5;
+        }
         float halfAngle = spreadAngle / 2f;
-
         for (int i = 0; i < numProjectiles; i++)
         {
             // Calculate random angle within the spread
@@ -162,6 +199,12 @@ public class BossBehavior : MonoBehaviour
         if (difficulty == 1) speedLesser = 0.5f;
         if (difficulty == 2) speedLesser = 1.5f;
         if (difficulty == 3) speedLesser = 2.5f;
+        float homeDuration = 3f;
+        if (phase2)
+        {
+            homeDuration = 5f;
+            attackIndex += 5;
+        }
         // Spawn the projectile directly in front of the boss
         GameObject projectile = Instantiate(skillPrefabs[attackIndex], bossPosition.position, Quaternion.identity);
 
@@ -169,7 +212,7 @@ public class BossBehavior : MonoBehaviour
         HomingProjectile homingProjectile = projectile.AddComponent<HomingProjectile>();
         homingProjectile.target = playerPosition;
         homingProjectile.speed = AttackSpeed - speedLesser; // Adjust speed as necessary
-        homingProjectile.homingDuration = 3f; // Time for the projectile to follow the target
+        homingProjectile.homingDuration = homeDuration; // Time for the projectile to follow the target
         homingProjectile.destroyAfter = 30f; // Time before the projectile self-destructs
     }
 
@@ -178,7 +221,13 @@ public class BossBehavior : MonoBehaviour
         int numPrefabs = 8; // Number of prefabs to spawn
         float distanceBetween = 1f; // Distance between each prefab
         float spawnDelay = 0.5f; // Delay between each spawn (1 or 1.5 seconds)
-        for (int j = 0; j < 2; j++)
+        int numbOfLines = 2;
+        if (phase2)
+        {
+            numbOfLines = 4;
+            attackIndex += 5;
+        }
+        for (int j = 0; j < numbOfLines; j++)
         {
             Vector3 direction = (playerPosition.position - bossPosition.position).normalized;
             for (int i = 0; i < numPrefabs; i++)
@@ -202,16 +251,22 @@ public class BossBehavior : MonoBehaviour
         }
     }
 
-    private IEnumerator SpawnUltimateAttack()
+    private IEnumerator SpawnUltimateAttack(int attackIndex)
     {
         // Step 1: Spawn the warning prefab around the boss
         float warningDuration = 2f; // Duration the warning stays visible
         float warningRadius = 4f; // Radius around the boss where warnings will spawn
         List<GameObject> warningPrefabs = new List<GameObject>(); // Store the warning prefab instances
         List<Vector3> warningPositions = new List<Vector3>(); // Store the positions for ultimate spawns
+        int shockwaves = 10;
+        if (phase2)
+        {
+            shockwaves = 20;
+            attackIndex += 5;
+        }
 
         // Randomly spawn multiple warning prefabs around the boss and store their positions
-        for (int i = 0; i < 10; i++) // 10 warning prefabs, adjust as needed
+        for (int i = 0; i < shockwaves; i++) // 10 warning prefabs, adjust as needed
         {
             Vector3 randomPosition = bossPosition.position +
                                      new Vector3(Random.insideUnitCircle.x, Random.insideUnitCircle.y, 0f) * warningRadius;
@@ -233,7 +288,7 @@ public class BossBehavior : MonoBehaviour
         // Step 3: Spawn the ultimate skill prefabs at the same positions as the warnings
         foreach (Vector3 position in warningPositions)
         {
-            GameObject ultimatePrefab = Instantiate(skillPrefabs[4], position, Quaternion.identity);
+            GameObject ultimatePrefab = Instantiate(skillPrefabs[attackIndex], position, Quaternion.identity);
 
             // Optionally, orient the prefab to face the player or any other direction
             Vector3 direction = (playerPosition.position - position).normalized;

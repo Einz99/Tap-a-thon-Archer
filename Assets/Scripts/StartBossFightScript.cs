@@ -9,7 +9,7 @@ public class StartBossFightScript : MonoBehaviour
     {
         PlayerPrefs.SetInt(difficultyKey, difficulty);
         PlayerPrefs.Save();
-        int randomBoss = Random.Range(3,8);
+        int randomBoss = Random.Range(3,6);
         SceneManager.LoadScene(3);
     }
 }

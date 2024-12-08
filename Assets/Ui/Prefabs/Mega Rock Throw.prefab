@@ -168,6 +168,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   speed: 5
-  homingDuration: 2
-  destroyAfter: 4
+  homingDuration: 10
+  destroyAfter: 20
   postHomingSpeedMultiplier: 5

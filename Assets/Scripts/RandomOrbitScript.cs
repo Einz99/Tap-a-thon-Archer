@@ -22,7 +22,7 @@ public class RandomOrbitScript : MonoBehaviour
 
     public void initialize()
     {
-        int index = Random.Range(0, sprites.Count + 1);
+        int index = Random.Range(0, sprites.Count);
         image.GetComponent<SpriteRenderer>().sprite = sprites[index];
         Destroy(GetComponent<PolygonCollider2D>());
         Destroy(GetComponent<Rigidbody2D>());

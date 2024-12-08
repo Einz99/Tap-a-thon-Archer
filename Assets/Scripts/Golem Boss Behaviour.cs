@@ -18,6 +18,8 @@ public class GolemBossBehavior : MonoBehaviour
     public FightCalculation FC;
     private int difficulty;
     private const string difficultyKey = "difficulty";
+    public bool phase2 = false;
+    private bool stayP2 = true;
     void Start()
     {
         // Set animation speed based on difficulty stored in PlayerPrefs
@@ -49,6 +51,23 @@ public class GolemBossBehavior : MonoBehaviour
             isAttacking = true;
             StartCoroutine(AttackSequence());
         }
+
+        // Check if phase2 is activated and handle the transformation animation
+        if (phase2 && stayP2)
+        {
+            StartCoroutine(HandlePhase2Transformation());
+            stayP2 = false;
+        }
+    }
+
+    private IEnumerator HandlePhase2Transformation()
+    {
+        // Start the transformation animation
+        animator.SetBool("Beary_Transform", true);
+        yield return new WaitForSeconds(2f); // Wait for the transformation animation duration
+
+        // Switch to the idle animation after the transformation
+        animator.SetBool("Beary_Transform", false);
     }
 
     private IEnumerator AttackSequence()
@@ -78,6 +97,10 @@ public class GolemBossBehavior : MonoBehaviour
 
     private void ActivateAttack(int attackIndex)
     {
+        if (phase2)
+        {
+            attackIndex += 5;
+        }
         // Trigger animation
         string animationName = GetAnimationName(attackIndex);
         animator.SetBool(animationName, true);
@@ -105,12 +128,21 @@ public class GolemBossBehavior : MonoBehaviour
             case 2: Debug.Log("Golem_Crystal"); return "Golem_Crystal";
             case 3: Debug.Log("Golem_Shield"); return "Golem_Shield";
             case 4: Debug.Log("Golem_Slam"); return "Golem_Slam";
+            case 5: Debug.Log("Golem_Bullet"); return "Golem_Bullet";
+            case 6: Debug.Log("Golem_Charge"); return "Golem_Charge";
+            case 7: Debug.Log("Golem_Crystal"); return "Golem_Crystal";
+            case 8: Debug.Log("Golem_Shield"); return "Golem_Shield";
+            case 9: Debug.Log("Golem_Slam"); return "Golem_Slam";
             default: return "Golem_Idle";
         }
     }
 
     private void SpawnPrefab(int attackIndex)
     {
+        if (phase2)
+        {
+            attackIndex -= 5;
+        }
         // Ultimate will spawn multiple prefabs in a shotgun pattern
         if (attackIndex < 2)
         {
@@ -118,24 +150,28 @@ public class GolemBossBehavior : MonoBehaviour
         }
         if (attackIndex == 2)
         {
-            StartCoroutine(SpawnStompLine(attackIndex));
+            
         }
         if (attackIndex == 3)
         {
-            SpawnHomingProjectile(attackIndex);
+            
         }
         else if (attackIndex == 4)
         {
-            StartCoroutine(SpawnUltimateAttack());
+            StartCoroutine(SpawnUltimateAttack(attackIndex));
         }
     }
-
     private void SpawnShotgun(int attackIndex)
     {
         int numProjectiles = 5; // Number of projectiles in the shotgun
         float spreadAngle = 120f; // Total spread angle
+        if (phase2)
+        {
+            numProjectiles = 8;
+            spreadAngle = 150f;
+            attackIndex += 5;
+        }
         float halfAngle = spreadAngle / 2f;
-
         for (int i = 0; i < numProjectiles; i++)
         {
             // Calculate random angle within the spread
@@ -156,62 +192,24 @@ public class GolemBossBehavior : MonoBehaviour
         }
     }
 
-    private void SpawnHomingProjectile(int attackIndex)
-    {
-        float speedLesser = 0;
-        if (difficulty == 1) speedLesser = 0.5f;
-        if (difficulty == 2) speedLesser = 1.5f;
-        if (difficulty == 3) speedLesser = 2.5f;
-        // Spawn the projectile directly in front of the boss
-        GameObject projectile = Instantiate(skillPrefabs[attackIndex], bossPosition.position, Quaternion.identity);
+    
 
-        // Get the HomingProjectile component and configure its target
-        HomingProjectile homingProjectile = projectile.AddComponent<HomingProjectile>();
-        homingProjectile.target = playerPosition;
-        homingProjectile.speed = AttackSpeed - speedLesser; // Adjust speed as necessary
-        homingProjectile.homingDuration = 3f; // Time for the projectile to follow the target
-        homingProjectile.destroyAfter = 30f; // Time before the projectile self-destructs
-    }
-
-    private IEnumerator SpawnStompLine(int attackIndex)
-    {
-        int numPrefabs = 8; // Number of prefabs to spawn
-        float distanceBetween = 1f; // Distance between each prefab
-        float spawnDelay = 0.5f; // Delay between each spawn (1 or 1.5 seconds)
-        for (int j = 0; j < 2; j++)
-        {
-            Vector3 direction = (playerPosition.position - bossPosition.position).normalized;
-            for (int i = 0; i < numPrefabs; i++)
-            {
-                // Calculate spawn position along the line toward the player
-                Vector3 spawnPosition = bossPosition.position + direction * distanceBetween * (i + 1);
-
-                // Instantiate the prefab at the calculated position
-                GameObject stompPrefab = Instantiate(skillPrefabs[attackIndex], spawnPosition, Quaternion.identity);
-
-                // Optionally, orient the prefab to face the player
-                float angleToFace = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-                stompPrefab.transform.rotation = Quaternion.Euler(0f, 0f, angleToFace);
-
-                // Destroy the prefab after 3 seconds
-                Destroy(stompPrefab, 3f);
-
-                // Wait for the specified delay before spawning the next prefab
-                yield return new WaitForSeconds(spawnDelay);
-            }
-        }
-    }
-
-    private IEnumerator SpawnUltimateAttack()
+    private IEnumerator SpawnUltimateAttack(int attackIndex)
     {
         // Step 1: Spawn the warning prefab around the boss
         float warningDuration = 2f; // Duration the warning stays visible
         float warningRadius = 4f; // Radius around the boss where warnings will spawn
         List<GameObject> warningPrefabs = new List<GameObject>(); // Store the warning prefab instances
         List<Vector3> warningPositions = new List<Vector3>(); // Store the positions for ultimate spawns
+        int shockwaves = 10;
+        if (phase2)
+        {
+            shockwaves = 20;
+            attackIndex += 5;
+        }
 
         // Randomly spawn multiple warning prefabs around the boss and store their positions
-        for (int i = 0; i < 10; i++) // 10 warning prefabs, adjust as needed
+        for (int i = 0; i < shockwaves; i++) // 10 warning prefabs, adjust as needed
         {
             Vector3 randomPosition = bossPosition.position +
                                      new Vector3(Random.insideUnitCircle.x, Random.insideUnitCircle.y, 0f) * warningRadius;
@@ -233,7 +231,7 @@ public class GolemBossBehavior : MonoBehaviour
         // Step 3: Spawn the ultimate skill prefabs at the same positions as the warnings
         foreach (Vector3 position in warningPositions)
         {
-            GameObject ultimatePrefab = Instantiate(skillPrefabs[4], position, Quaternion.identity);
+            GameObject ultimatePrefab = Instantiate(skillPrefabs[attackIndex], position, Quaternion.identity);
 
             // Optionally, orient the prefab to face the player or any other direction
             Vector3 direction = (playerPosition.position - position).normalized;

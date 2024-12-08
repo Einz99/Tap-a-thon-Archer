@@ -5,24 +5,6 @@ TextureImporter:
   - first:
       213: -2634508930528494169
     second: bear_stomp6_0
-  - first:
-      213: 6522163558486126828
-    second: bear_stomp6_1
-  - first:
-      213: 4518494370277405456
-    second: bear_stomp6_2
-  - first:
-      213: -6918901268668476707
-    second: bear_stomp6_3
-  - first:
-      213: 5832554698369222287
-    second: bear_stomp6_4
-  - first:
-      213: 7925474845206611455
-    second: bear_stomp6_5
-  - first:
-      213: 5283173592958324365
-    second: bear_stomp6_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -144,23 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bear_stomp6_1
+      name: bear_stomp6_0
       rect:
         serializedVersion: 2
-        x: 27
-        y: 4
-        width: 116
-        height: 149
+        x: 18
+        y: 35
+        width: 144
+        height: 129
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ce030965331638a50800000000000000
-      internalID: 6522163558486126828
+      spriteID: 7ad314ef518507bd0800000000000000
+      internalID: -2634508930528494169
       vertices: []
       indices: 
       edges: []
@@ -169,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 36ee2412960be414caef3641cd958e89
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -178,8 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      bear_stomp6_1: 6522163558486126828
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

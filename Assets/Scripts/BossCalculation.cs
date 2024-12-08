@@ -9,7 +9,7 @@ public class FightCalculation : MonoBehaviour
     private int extralife;
     public float attackspeed;
     public float Health;
-    private bool isPhase2;
+    public bool isPhase2;
     private int weatherChance;
     public BossHealthBar BHB;
 

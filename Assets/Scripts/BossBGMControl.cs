@@ -14,9 +14,9 @@ public class BossBGMControl : MonoBehaviour
         
     }
 
-    public AudioSource INGAME_BGM;
+    //public AudioSource INGAME_BGM;
 
     void play_ingame_BGM(){
-        INGAME_BGM.Play();
+        //INGAME_BGM.Play();
     }
 }
