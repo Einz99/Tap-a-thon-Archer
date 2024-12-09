@@ -174,7 +174,7 @@ public void ChangeDirection()
             Destroy(child.gameObject);
             if (PlayerPrefs.GetInt(vibrateKey, 0) == 0)
             {
-                Handheld.Vibrate();
+                //Handheld.Vibrate();
             }
         }
         if (heartContainer.transform.childCount == 1)

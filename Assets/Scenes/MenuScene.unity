@@ -1697,8 +1697,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 762472444}
   m_HandleRect: {fileID: 762472443}
   m_Direction: 2
-  m_Value: 1.0000001
-  m_Size: 0.21355
+  m_Value: 1
+  m_Size: 0.21354997
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2529,7 +2529,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 914715004}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.23458517
+  m_Size: 0.23458515
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -19505,7 +19505,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1428675947}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 0b7d933ca2b0f1f4ebc1228102908991, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: e7e7af6d5ac7bf64b9b4a1694f586573, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -31480,20 +31480,21 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\nSwivel Quiver is a one-button action game where you, a mystical warrior,
-    must defeat powerful guardians by automatically shooting arrows while strategically
+  m_text: "Game Name is a one-button action game where you, a mystical warrior, must
+    defeat powerful guardians by automatically shooting arrows while strategically
     controlling your movement. As you grow stronger, your victories bring prosperity
     to your land and village, with the flourishing of the village tied to your success.
     Each difficulty level you choose rewards you with gold, which can be spent in
     the shop to purchase power-ups and enhance your abilities. The challenge lies
     in mastering the single button, which offers multiple functions depending on
-    whether you tap, hold, or slide it.\n\n\r\nGame Platforms\r\nMobile Gaming\r\n\r\nAge
-    Rating\r\n\u2014\r\n\r\nProduction Team\r\n8:1 Productions\r\n\r\nDEVELOPER TEAM:\r\n\r\nProduct
-    Owner\r\nRonald Villarde\r\n\r\nScrum Master\r\n John Kurt Caampued\r\n\r\nConcept
-    Artist\r\nNathaniel Pangilinan\r\nSamantha Sacupon\r\n\r\nSFX Designer\r\nMarvin
-    Cyrill Palomar\r\nRose Jean Besinga\r\n\r\nEditor\r\nCarl Jonas Dela Cruz\r\nNathaniel
-    Pangilinan\r\n\r\nDocumentation\r\nShamantha Mae Fuentes\r\nRose Jean Besinga
-    \r\nAlyssa Mackay\r\n\r\nScript Writer\r\nShamantha Mae Fuentes\r\n"
+    whether you tap or hold it.\r\n\r\nGame Modes: \r\n\u2014\r\n\r\nGame Platforms\r\nMobile
+    Gaming\r\n\r\nAge Rating\r\n\u2014\r\n\r\nProduction Team\r\n8:1 Productions\r\n\r\nDEVELOPER
+    TEAM:\r\n\r\nProduct Owner\r\nRonald Villarde\r\n\r\nScrum Master\r\n John Kurt
+    Caampued\r\n\r\nConcept Artist\r\nNathaniel Pangilinan\r\nSamantha Sacupon\r\n\r\nSFX
+    Designer\r\nMarvin Cyrill Palomar\r\nRose Jean Besinga\r\n\r\nEditor\r\nMarvin
+    Cyrill Palomar\r\nCarl Jonas Dela Cruz\r\n\r\nDocumentation\r\nShamantha Mae
+    Fuentes\r\nRose Jean Besinga \r\n(Alyssa Mackay)\r\n\r\nScript Writer\r\nShamantha
+    Mae Fuentes\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0d642c8c54460f4418ab09afb1b954b4, type: 2}
   m_sharedMaterial: {fileID: 6053219303046252117, guid: 0d642c8c54460f4418ab09afb1b954b4, type: 2}
@@ -47471,23 +47472,24 @@ MonoBehaviour:
       m_Calls: []
   m_text: "A one-button action game where precision strategy is your greatest ally.
     You, a mystical warrior, must conquer elemental guardians to bring growth and
-    prosperity to your land and village.\r\n\r\n<color=black>GAMEPLAY</color>\r\nThe
-    warrior automatically shoots an arrow at enemies.\r\nMove your character using
-    one button to dodge attacks from the enemies.\r\nUse your gold in the shop for
-    power-ups and upgrades.\r\nEarn gold by defeating elemental creatures.\r\n\r\nCONTROLS\r\nThe
-    warrior\u2019s default rotation is counter-clockwise, tap the button to change
-    its rotation (clockwise).\r\n\r\nPOWER-UPS AND UPGRADES\r\n\tVisit the Shop to
-    improve your chances of success:\r\nAttack Power \r\n\tIncreases the damage of
-    each arrow fired. A must-have upgrade to take down  guardians more quickly.\r\nCritical
-    Multiplier \r\n\tEnhances the damage dealt when landing a critical hit.\r\nMax
-    Health\r\nBoost your maximum health, allowing you to endure more damage during
-    battles.\r\nAttack Speed \r\n\tBoots the rate at which your arrows are fired.
-    Faster attacks mean more damage output over time.\r\nCritical Chance \r\n\tIncreases
-    the likelihood of landing a critical hit.\r\nMovement Speed \r\nEnhances speed
-    at which you move across the battlefield, improves dodging.\r\n\r\nDIFFICULTY
-    LEVELS\r\nEasy: A less intense challenge with x1 gold rewards\r\nNormal: Balanced
-    difficulty with x2 gold rewards\r\nHard: High-intensity gameplay with x3 gold
-    rewards\r\n"
+    prosperity to your land and village.\r\n\r\nGAMEPLAY\r\nThe warrior automatically
+    shoots an arrow at enemies.\r\nMove your character using one button to dodge
+    attacks from the enemies.\r\nHold the button to increase your firing speed while
+    maintaining your position.\r\nUse your gold in the shop for power-ups and upgrades.\r\nEarn
+    gold by defeating elemental creatures.\r\n\r\nCONTROLS\r\nThe warrior\u2019s
+    default rotation is counter-clockwise, tap the button to change its rotation
+    (clockwise). Hold the button to stay in position and fire faster.\r\n\r\nPOWER-UPS
+    AND UPGRADES\r\n\tVisit the Shop to improve your chances of success:\r\nAttack
+    Power \r\n\tIncreases the damage of each arrow fired. A must-have upgrade to
+    take down  guardians more quickly.\r\nCritical Multiplier \r\n\tEnhances the
+    damage dealt when landing a critical hit.\r\nMax Health\r\nBoost your maximum
+    health, allowing you to endure more damage during battles.\r\nAttack Speed \r\n\tBoots
+    the rate at which your arrows are fired. Faster attacks mean more damage output
+    over time.\r\nCritical Chance \r\n\tIncreases the likelihood of landing a critical
+    hit.\r\nMovement Speed \r\nEnhances speed at which you move across the battlefield,
+    improves dodging.\r\n\r\nDIFFICULTY LEVELS\r\nEasy: A less intense challenge
+    with x1 gold rewards\r\nNormal: Balanced difficulty with x2 gold rewards\r\nHard:
+    High-intensity gameplay with x3 gold rewards\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0d642c8c54460f4418ab09afb1b954b4, type: 2}
   m_sharedMaterial: {fileID: 6053219303046252117, guid: 0d642c8c54460f4418ab09afb1b954b4, type: 2}
