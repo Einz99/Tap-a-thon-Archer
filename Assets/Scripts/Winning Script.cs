@@ -73,6 +73,7 @@ public class WinningScript : MonoBehaviour
 
     public void onTheBackShop()
     {
+        // Time.timeScale = 1;
         int CurFinal = final + PlayerPrefs.GetInt(currencyKey, 0);
         PlayerPrefs.SetInt(currencyKey, CurFinal);
         PlayerPrefs.Save();

@@ -25,6 +25,9 @@ public class ArcherMovement : MonoBehaviour
 
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        originalMaterial = spriteRenderer.material;
+
         int randomIndex = 0;
         moveSpeed = PC.moveSpeed;
         int random5percent = Random.Range (0, 101);
@@ -71,9 +74,9 @@ public class ArcherMovement : MonoBehaviour
 {
     if (heartContainer.transform.childCount == 0)
     {
-        Time.timeScale = 0;
         pause.SetActive(false);
         LosingPage.SetActive(true);
+        Time.timeScale = 0;
         LosingPage.GetComponent<PlayUISprite>().playAnimation("open");
     }
 
@@ -120,6 +123,7 @@ public class ArcherMovement : MonoBehaviour
 
 public void ChangeDirection()
 {
+    sfx.play_SFX(sfx.TAP);
     sfx.play_SFX(sfx.SWOOSH);
 
     // Flip the direction immediately when the button is pressed
@@ -152,6 +156,7 @@ public void ChangeDirection()
 
         if (x.gameObject.CompareTag("Obstacle"))
         {
+
             ChangeDirection();
         }
     }
@@ -165,6 +170,8 @@ public void ChangeDirection()
 
     private void minusHeart()
     {
+        flash();
+
         if (heartContainer.transform.childCount != 0)
         {
             Transform child = heartContainer.transform.GetChild(0);
@@ -176,5 +183,34 @@ public void ChangeDirection()
                 Handheld.Vibrate();
             }
         }
+    }
+
+    [SerializeField] private Material flashMaterial;
+    [SerializeField] private float duration;
+
+    public SpriteRenderer spriteRenderer;
+
+    public Material originalMaterial;
+
+    private Coroutine flashRoutine;
+
+    public void flash(){
+        if(flashRoutine != null){
+            StopCoroutine(flashRoutine);
+        }
+
+
+        flashRoutine = StartCoroutine(flashCoroutine());
+    }
+
+    private IEnumerator flashCoroutine(){
+
+        spriteRenderer.material = flashMaterial;
+
+        yield return new WaitForSeconds(duration);
+
+        spriteRenderer.material = originalMaterial;
+
+        flashRoutine = null;
     }
 }

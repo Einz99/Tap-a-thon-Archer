@@ -255,7 +255,7 @@ TextureImporter:
         width: 34
         height: 28
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -264,6 +264,28 @@ TextureImporter:
       bones: []
       spriteID: 2382425e372af8046b5e7e53fe7253e4
       internalID: 85789720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icons2_7
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 91
+        width: 34
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1744d5c29421f64db3c542042f61c3a
+      internalID: 945181693
       vertices: []
       indices: 
       edges: []
@@ -289,6 +311,7 @@ TextureImporter:
       icons2_4: -6339936454727567110
       icons2_5: -8649539959412507517
       icons2_6: 85789720
+      icons2_7: 945181693
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

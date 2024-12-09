@@ -20,6 +20,9 @@ public class BossBehavior : MonoBehaviour
     private const string difficultyKey = "difficulty";
     public bool phase2 = false;
     private bool stayP2 = true;
+
+    public MasterVolume sfx;
+
     void Start()
     {
         // Set animation speed based on difficulty stored in PlayerPrefs
@@ -123,22 +126,24 @@ public class BossBehavior : MonoBehaviour
         // Returns the name of the animation parameter for each attack
         switch (attackIndex)
         {
-            case 0: return "Beary_Claws";
-            case 1: return "Beary_Kick";
-            case 2: return "Beary_Stomp";
-            case 3: return "Beary_Throw";
-            case 4: return "Beary_Ult";
-            case 5: return "P2Beary_Claw";
-            case 6: return "P2Beary_Kick";
-            case 7: return "P2Beary_Stomp";
-            case 8: return "P2Beary_Throw";
-            case 9: return "P2Beary_Buttslam";
+            case 0: sfx.play_SFX(sfx.BEAR_CLAW); return "Beary_Claws";
+            case 1: sfx.play_SFX(sfx.BEAR_KICK); return "Beary_Kick";
+            case 2: sfx.play_SFX(sfx.BEAR_STOMP); return "Beary_Stomp";
+            case 3: sfx.play_SFX(sfx.BEAR_THROW); return "Beary_Throw";
+            case 4: sfx.play_SFX(sfx.BEAR_TRANSFORM); return "Beary_Ult";
+            case 5: sfx.play_SFX(sfx.BEAR_CLAW); return "P2Beary_Claw";
+            case 6: sfx.play_SFX(sfx.BEAR_KICK); return "P2Beary_Kick";
+            case 7: sfx.play_SFX(sfx.BEAR_STOMP); return "P2Beary_Stomp";
+            case 8: sfx.play_SFX(sfx.BEAR_THROW); return "P2Beary_Throw";
+            case 9:sfx.play_SFX(sfx.BEAR_TRANSFORM); return "P2Beary_Buttslam";
             default: return "Bear";
         }
     }
 
     private void SpawnPrefab(int attackIndex)
     {
+        
+
         if (phase2)
         {
             attackIndex -= 5;
@@ -164,6 +169,8 @@ public class BossBehavior : MonoBehaviour
 
     private void SpawnShotgun(int attackIndex)
     {
+        sfx.play_SFX(sfx.BULLET_ROCK);
+
         int numProjectiles = 5; // Number of projectiles in the shotgun
         float spreadAngle = 120f; // Total spread angle
         if (phase2)
@@ -195,6 +202,8 @@ public class BossBehavior : MonoBehaviour
 
     private void SpawnHomingProjectile(int attackIndex)
     {
+        sfx.play_SFX(sfx.FLOATING_ROCK);
+
         float speedLesser = 0;
         if (difficulty == 1) speedLesser = 0.5f;
         if (difficulty == 2) speedLesser = 1.5f;
@@ -218,6 +227,8 @@ public class BossBehavior : MonoBehaviour
 
     private IEnumerator SpawnStompLine(int attackIndex)
     {
+        sfx.play_SFX(sfx.GROUND_SHOCKWAVE);
+
         int numPrefabs = 8; // Number of prefabs to spawn
         float distanceBetween = 1f; // Distance between each prefab
         float spawnDelay = 0.5f; // Delay between each spawn (1 or 1.5 seconds)
@@ -253,6 +264,8 @@ public class BossBehavior : MonoBehaviour
 
     private IEnumerator SpawnUltimateAttack(int attackIndex)
     {
+        sfx.play_SFX(sfx.GROUND_SHOCKWAVE);
+
         // Step 1: Spawn the warning prefab around the boss
         float warningDuration = 2f; // Duration the warning stays visible
         float warningRadius = 4f; // Radius around the boss where warnings will spawn

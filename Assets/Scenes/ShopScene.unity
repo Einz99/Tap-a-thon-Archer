@@ -183,8 +183,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: 
-  backdrop: {fileID: 0}
-  sfx: {fileID: 0}
+  backdrop: {fileID: 487376918}
+  sfx: {fileID: 1462974645}
 --- !u!114 &2918847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,6 +200,7 @@ MonoBehaviour:
   delay: 0
   buttonPos: 0
   panelPosX: 0
+  sfx: {fileID: 1462974645}
 --- !u!1 &9911690
 GameObject:
   m_ObjectHideFlags: 0
@@ -3362,17 +3363,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ToggleValue: 1
-  mute_button: {fileID: 0}
-  unmute_button: {fileID: 0}
-  master: {fileID: 0}
+  mute_button: {fileID: -8649539959412507517, guid: f8cff4970b1181d4f9b1f64888f27a99, type: 3}
+  unmute_button: {fileID: 945181693, guid: f8cff4970b1181d4f9b1f64888f27a99, type: 3}
+  master: {fileID: 1462974645}
   pressed_unmute_button:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 1796471715, guid: ea6d1e5dcf904194e86f8d668000ff64, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   pressed_mute_button:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: -8459102530766925458, guid: ea6d1e5dcf904194e86f8d668000ff64, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
 --- !u!114 &384769774
@@ -12765,13 +12766,50 @@ MonoBehaviour:
   HOVER: {fileID: 8300000, guid: a42a06b13c1d72c4ab7cb96ba66cf973, type: 3}
   GOLD: {fileID: 8300000, guid: 0f29f840d7b406c468fbf6bfc603f19a, type: 3}
   PAUSE_RESUME: {fileID: 0}
-  GAME_OVER: {fileID: 0}
   PROMPT_POP: {fileID: 8300000, guid: 4799a6b4fd285bc49ae90e88e5763e5a, type: 3}
   WOOD: {fileID: 8300000, guid: c1b2a998271ad7e4289976fdea4fb18a, type: 3}
   LEAVES: {fileID: 8300000, guid: 4f21154addf30d04cb116487ae1d47f2, type: 3}
+  GAME_OVER: {fileID: 0}
+  VICTORY: {fileID: 0}
   SWOOSH: {fileID: 0}
   TAP: {fileID: 0}
   HOLD: {fileID: 0}
+  PLAYER_DAMAGED: {fileID: 0}
+  BEAR_CLAW: {fileID: 0}
+  BEAR_KICK: {fileID: 0}
+  BEAR_STOMP: {fileID: 0}
+  BEAR_THROW: {fileID: 0}
+  BEAR_TRANSFORM: {fileID: 0}
+  BEAR_DAMAGED: {fileID: 0}
+  GOLEM_CHARGE: {fileID: 0}
+  GOLEM_STOMP_1: {fileID: 0}
+  GOLEM_STOMP_2: {fileID: 0}
+  GOLEM_TRANSFORM: {fileID: 0}
+  GOLEM_DAMAGED: {fileID: 0}
+  SLIME_WHIP: {fileID: 0}
+  SLIME_SHOOT: {fileID: 0}
+  SLIME_BLOW: {fileID: 0}
+  SLIME_RIPPLE: {fileID: 0}
+  SLIME_BOUNCE: {fileID: 0}
+  SLIME_TRANSFORM: {fileID: 0}
+  SLIME_DAMAGED: {fileID: 0}
+  ARROW_HIT: {fileID: 0}
+  SHOOTING_ARROW: {fileID: 0}
+  CRIT_ARROW: {fileID: 0}
+  BOW_CHARGE: {fileID: 0}
+  WIND_CLAW: {fileID: 0}
+  BULLET_ROCK: {fileID: 0}
+  MEGA_ROCK: {fileID: 0}
+  ROCK_MAGMA: {fileID: 0}
+  BIG_MAGMA: {fileID: 0}
+  FIRE_CLAW: {fileID: 0}
+  GROUND_SHOCKWAVE: {fileID: 0}
+  FLOATING_ROCK: {fileID: 0}
+  ROCK_SHIELD: {fileID: 0}
+  CRYSTAL_SPIKE: {fileID: 0}
+  SLIME_SPLASH: {fileID: 0}
+  SLIME_BULLET: {fileID: 0}
+  BUBBLE_POP: {fileID: 0}
   musicVolume: 0
   sfxVolume: 0
   musicLevel: {fileID: 1616730610}

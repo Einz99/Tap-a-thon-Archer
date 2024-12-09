@@ -22,7 +22,7 @@ public class GolemBossBehavior : MonoBehaviour
     private bool stayP2 = true;
     public BossHealthBar Bossbar;
 
-    public MasterVolume SFX;
+    public MasterVolume sfx;
 
     void Start()
     {
@@ -127,14 +127,14 @@ public class GolemBossBehavior : MonoBehaviour
         // Returns the name of the animation parameter for each attack
         switch (attackIndex)
         {
-            case 0: return "Golem_Bullet";
-            case 1: return "Golem_Slam";
-            case 2: return "Golem_Charge";
+            case 0: sfx.play_SFX(sfx.GOLEM_STOMP_1); return "Golem_Bullet";
+            case 1: sfx.play_SFX(sfx.GOLEM_STOMP_2); return "Golem_Slam";
+            case 2: sfx.play_SFX(sfx.GOLEM_CHARGE); return "Golem_Charge";
             case 3: return "Golem_Shield";
             case 4: return "Golem_Crystal";
-            case 5: return "P2Golem_Bullet";
-            case 6: return "P2Golem_Slam";
-            case 7: return "P2Golem_Charge";
+            case 5: sfx.play_SFX(sfx.GOLEM_STOMP_1); return "P2Golem_Bullet";
+            case 6: sfx.play_SFX(sfx.GOLEM_STOMP_2); return "P2Golem_Slam";
+            case 7: sfx.play_SFX(sfx.GOLEM_CHARGE); return "P2Golem_Charge";
             case 8: return "P2Golem_Shield";
             case 9: return "P2Golem_Crystal";
             default: return "Golem_Idle";
@@ -167,6 +167,8 @@ public class GolemBossBehavior : MonoBehaviour
     }
     private void SpawnShotgun(int attackIndex)
     {
+        sfx.play_SFX(sfx.BULLET_ROCK);
+
         int numProjectiles = 5; // Number of projectiles in the shotgun
         float spreadAngle = 120f; // Total spread angle
         if (phase2)
@@ -198,6 +200,8 @@ public class GolemBossBehavior : MonoBehaviour
 
     private void SpawnRocksInCircle(int attackIndex)
     {
+        sfx.play_SFX(sfx.ROCK_SHIELD);
+
         int numberOfRocks = 10;
         if (phase2)
         {
@@ -269,6 +273,8 @@ public class GolemBossBehavior : MonoBehaviour
 
     public void GolemShilded(int attackIndex)
     {
+        sfx.play_SFX(sfx.ROCK_SHIELD);
+
         float duration = 20f;
         if (phase2)
         {
@@ -276,7 +282,7 @@ public class GolemBossBehavior : MonoBehaviour
             attackIndex += 5;
         }
         GameObject shockwave = Instantiate(skillPrefabs[attackIndex], new Vector2(0f, -1f), Quaternion.identity);
-        SFX.play_SFX(SFX.GOLEM_CHARGE);
+        
 
         StartCoroutine(Bossbar.DefenseTimer(duration));
         Destroy(shockwave, 5f);
@@ -284,6 +290,8 @@ public class GolemBossBehavior : MonoBehaviour
 
     private IEnumerator SpawnUltimateAttack(int attackIndex)
     {
+
+        
         if(phase2) attackIndex += 5;
         // Define the 8 directions for spawning warning indicators and projectiles
         Vector3[] directions = new Vector3[]
@@ -327,7 +335,7 @@ public class GolemBossBehavior : MonoBehaviour
     private void SpawnProjectilesInLines(int attackIndex, Vector3[] directions)
     {
         int numProjectiles = 5; // Number of projectiles per direction
-        SFX.play_SFX(SFX.GOLEM_STOMP_1);
+        sfx.play_SFX(sfx.CRYSTAL_SPIKE);
         // Spawn projectiles in each of the 8 directions
         foreach (var direction in directions)
         {
@@ -338,7 +346,7 @@ public class GolemBossBehavior : MonoBehaviour
     private IEnumerator SpawnMultipleProjectiles(Vector3 direction, int attackIndex, int numProjectiles)
     {
         float delay = 0.5f; // Delay between each projectile spawn
-        SFX.play_SFX(SFX.GOLEM_STOMP_2);
+        sfx.play_SFX(sfx.GROUND_SHOCKWAVE);
         // Spawn 5 projectiles in the given direction
         for (int i = 0; i < numProjectiles; i++)
         {

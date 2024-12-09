@@ -5,10 +5,14 @@ using UnityEngine.UI;
 
 public class PlayUISprite : MonoBehaviour
 {
+    public string command;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        if(command == "auto"){
+            playLoopedAnimaion();
+        }
     }
 
     // Update is called once per frame
@@ -58,6 +62,7 @@ public class PlayUISprite : MonoBehaviour
             Debug.Log("Start anim");
             yield return new WaitForSecondsRealtime(0.05f);
             index++;
+            Debug.Log(index);
             if(index >= sprites.Count){
                 Debug.Log("Stop anim");
                 index = 0;

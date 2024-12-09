@@ -355,23 +355,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e58d41e2374cf4ab2b64c7a4b05020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  command: 
   image: {fileID: 4306656}
   sprites:
-  - {fileID: 5480357143838578255, guid: aa2b6068c5b91b34e9c706d72a554a7c, type: 3}
-  - {fileID: -4974541700006278996, guid: a3b618b0d17014142b0af77b7694a6e8, type: 3}
-  - {fileID: 7160725329586351792, guid: 60bb58af23163bc48bc837931d9dafbc, type: 3}
-  - {fileID: -6782189102333876758, guid: 3876bc5a37532cb439213888883938d6, type: 3}
-  - {fileID: 4610352389896655001, guid: 2028685afca1c694cb11fbb5532532c9, type: 3}
-  - {fileID: -7010082702669495141, guid: d56dc870797da2541a7292318794b2a6, type: 3}
-  - {fileID: -2508531757765875002, guid: 6dc83f04972738c4385e15244305d530, type: 3}
-  - {fileID: 1921869648768920151, guid: 2aeea151d3d5a304c866564171866bf5, type: 3}
-  - {fileID: -489860864779558424, guid: bee69144518071644a1225976665a710, type: 3}
-  - {fileID: -1471714218830155753, guid: 39518ce6d5104bd4cb4097377c1b3d60, type: 3}
-  - {fileID: -8253544628791399923, guid: 34d4e292a9b80db438c5e0a18027c7a6, type: 3}
+  - {fileID: 21300000, guid: 3119134ef7cafd346b73c99f34d648bd, type: 3}
+  - {fileID: 21300000, guid: 1d3d0f4bce36b8c439a0e40db02efa18, type: 3}
+  - {fileID: 21300000, guid: 1e17fa4043ee77c40bf5d813dc3145b4, type: 3}
+  - {fileID: 21300000, guid: 7472f931834a322438ac019d6ba5b2bc, type: 3}
+  - {fileID: 21300000, guid: 2289de3601541b14687baa62e2898638, type: 3}
+  - {fileID: 21300000, guid: e4d1bc5d0e4cc164a81a8ccd76d54dc5, type: 3}
+  - {fileID: 21300000, guid: 2c962cce10c9fee4eb17a71aa546aefb, type: 3}
+  - {fileID: 21300000, guid: fc08576c73ca9f24fa9ea89da3949a14, type: 3}
+  - {fileID: 21300000, guid: 4ad1a517c4a8e3a49b34d83a52479bcf, type: 3}
+  - {fileID: 21300000, guid: c1e62942dee9790498717629c7b036aa, type: 3}
   animSpeed: 0.5
   object_type: 
   sfx: {fileID: 1267444514}
-  onLoop: 1
+  onLoop: 0
 --- !u!114 &4306656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2239,17 +2239,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ToggleValue: 1
-  mute_button: {fileID: 0}
-  unmute_button: {fileID: 0}
-  master: {fileID: 0}
+  mute_button: {fileID: -8649539959412507517, guid: f8cff4970b1181d4f9b1f64888f27a99, type: 3}
+  unmute_button: {fileID: 945181693, guid: f8cff4970b1181d4f9b1f64888f27a99, type: 3}
+  master: {fileID: 1267444514}
   pressed_unmute_button:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 1796471715, guid: ea6d1e5dcf904194e86f8d668000ff64, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   pressed_mute_button:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: -8459102530766925458, guid: ea6d1e5dcf904194e86f8d668000ff64, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
 --- !u!114 &194736821
@@ -2529,7 +2529,7 @@ MonoBehaviour:
   ToggleValue: 0
   mute_button: {fileID: -3311114313877805598, guid: e0b0a4b8eff311c498312970c9601900, type: 3}
   unmute_button: {fileID: 1414210354977102215, guid: f8cff4970b1181d4f9b1f64888f27a99, type: 3}
-  master: {fileID: 0}
+  master: {fileID: 1267444514}
   pressed_unmute_button:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 8242622823429068648, guid: ea6d1e5dcf904194e86f8d668000ff64, type: 3}
@@ -6354,6 +6354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e58d41e2374cf4ab2b64c7a4b05020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  command: 
   image: {fileID: 879605326}
   sprites:
   - {fileID: 21300000, guid: 7d48c65124b838b4ca860682516812c1, type: 3}
@@ -10729,35 +10730,35 @@ MonoBehaviour:
   TITLESCREEN: {fileID: 8300000, guid: f9fdc727090ff044c8d8b1650295d8b0, type: 3}
   BACKSTORY: {fileID: 8300000, guid: f9fdc727090ff044c8d8b1650295d8b0, type: 3}
   INGAME: {fileID: 8300000, guid: 7cb07ad9543d6c44b88ced5a8bec053c, type: 3}
-  SHOP: {fileID: 8300000, guid: f9fdc727090ff044c8d8b1650295d8b0, type: 3}
+  SHOP: {fileID: 8300000, guid: 0bfcadf5edd7ef644a255810cc3092ef, type: 3}
   CLICK: {fileID: 8300000, guid: 646b5402223e0ef4a8aa801bbc1c9d36, type: 3}
   HOVER: {fileID: 8300000, guid: a42a06b13c1d72c4ab7cb96ba66cf973, type: 3}
-  GOLD: {fileID: 0}
-  PAUSE_RESUME: {fileID: 0}
+  GOLD: {fileID: 8300000, guid: 0f29f840d7b406c468fbf6bfc603f19a, type: 3}
+  PAUSE_RESUME: {fileID: 8300000, guid: 76b1c3d4737f21d42ad3d06d67ae31b6, type: 3}
   PROMPT_POP: {fileID: 8300000, guid: 4799a6b4fd285bc49ae90e88e5763e5a, type: 3}
   WOOD: {fileID: 8300000, guid: c1b2a998271ad7e4289976fdea4fb18a, type: 3}
-  LEAVES: {fileID: 0}
+  LEAVES: {fileID: 8300000, guid: 4f21154addf30d04cb116487ae1d47f2, type: 3}
   GAME_OVER: {fileID: 8300000, guid: 8b6c02ab5c8773c4aaba2cbfa17b39f4, type: 3}
   VICTORY: {fileID: 8300000, guid: 3b5aed396d60948449b24f2b0f97220a, type: 3}
   SWOOSH: {fileID: 8300000, guid: 38f5a404956cae147b5948bcea611242, type: 3}
-  TAP: {fileID: 0}
+  TAP: {fileID: 8300000, guid: 4d053c4669d5bb642ab296893a267025, type: 3}
   HOLD: {fileID: 0}
-  PLAYER_DAMAGED: {fileID: 0}
-  BEAR_CLAW: {fileID: 0}
+  PLAYER_DAMAGED: {fileID: 8300000, guid: 2f4c454428ba5a14a9a54d298972efad, type: 3}
+  BEAR_CLAW: {fileID: 8300000, guid: 9a33aa7d478de864993055f0659e8f3b, type: 3}
   BEAR_KICK: {fileID: 8300000, guid: 9a33aa7d478de864993055f0659e8f3b, type: 3}
   BEAR_STOMP: {fileID: 8300000, guid: 6b07c8e212dae314e9591e0f811efd95, type: 3}
   BEAR_THROW: {fileID: 8300000, guid: 5c61ade7a8b64e642b9cf61452a42253, type: 3}
-  BEAR_TRANSFORM: {fileID: 0}
-  BEAR_DAMAGED: {fileID: 0}
+  BEAR_TRANSFORM: {fileID: 8300000, guid: 2517504c7be66c947b79f3c1f3ec7633, type: 3}
+  BEAR_DAMAGED: {fileID: 8300000, guid: dda406f1a99223842a4972998f7287d2, type: 3}
   GOLEM_CHARGE: {fileID: 8300000, guid: de3090bbcd8dde14187dbcb010a99de4, type: 3}
   GOLEM_STOMP_1: {fileID: 8300000, guid: 90d5feb9306631f4a93b5c662c28c6fa, type: 3}
   GOLEM_STOMP_2: {fileID: 8300000, guid: a9c13677e8a15de4d99b33cafc999a62, type: 3}
-  GOLEM_TRANSFORM: {fileID: 0}
-  GOLEM_DAMAGED: {fileID: 0}
-  SLIME_WHIP: {fileID: 0}
+  GOLEM_TRANSFORM: {fileID: 8300000, guid: 02fe2455338ccd24aa3c77c49737f65f, type: 3}
+  GOLEM_DAMAGED: {fileID: 8300000, guid: ed80561fe50e3e546b361657da7eca39, type: 3}
+  SLIME_WHIP: {fileID: 8300000, guid: a3d5d540b0aa796428e23213e5833701, type: 3}
   SLIME_SHOOT: {fileID: 8300000, guid: ce1f3db4cb22a134f9d8db6bcf6014dc, type: 3}
-  SLIME_BLOW: {fileID: 0}
-  SLIME_RIPPLE: {fileID: 8300000, guid: 42b78deea204b8f4fb4251f69994bac3, type: 3}
+  SLIME_BLOW: {fileID: 8300000, guid: 42b78deea204b8f4fb4251f69994bac3, type: 3}
+  SLIME_RIPPLE: {fileID: 8300000, guid: c5561416bc5e8194ea90bd14f7308c6b, type: 3}
   SLIME_BOUNCE: {fileID: 8300000, guid: 052bd09e55498f549902633aeaae7491, type: 3}
   SLIME_TRANSFORM: {fileID: 8300000, guid: 81ef87ce1f339ef45a01fcb2bdc224ed, type: 3}
   SLIME_DAMAGED: {fileID: 8300000, guid: 44c468911fc79d0479b3df6edc944607, type: 3}
@@ -10766,18 +10767,18 @@ MonoBehaviour:
   CRIT_ARROW: {fileID: 8300000, guid: c900b551810a90949bfe6714cfd1d6fc, type: 3}
   BOW_CHARGE: {fileID: 8300000, guid: 5025dda54d9d0714daefcdf1374fe0d3, type: 3}
   WIND_CLAW: {fileID: 8300000, guid: 5d10c9a8592c4504db2b3249b7cf9170, type: 3}
-  BULLET_ROCK: {fileID: 0}
+  BULLET_ROCK: {fileID: 8300000, guid: 4e7d001c3640d0e42b7ce5c4dfbc1b0f, type: 3}
   MEGA_ROCK: {fileID: 8300000, guid: 2abc9e56de50a04438efa5f6f553846d, type: 3}
-  ROCK_MAGMA: {fileID: 0}
-  BIG_MAGMA: {fileID: 0}
-  FIRE_CLAW: {fileID: 0}
+  ROCK_MAGMA: {fileID: 8300000, guid: fc8ef322055e29643a2c5cc4e36c5e94, type: 3}
+  BIG_MAGMA: {fileID: 8300000, guid: ddeb7988b6df97c4099961a3ca35565d, type: 3}
+  FIRE_CLAW: {fileID: 8300000, guid: f299a848bd415bb4c90fc470d78946f1, type: 3}
   GROUND_SHOCKWAVE: {fileID: 8300000, guid: 917b170cf29ae3c4eba433716fa3ceab, type: 3}
-  FLOATING_ROCK: {fileID: 0}
-  ROCK_SHIELD: {fileID: 0}
+  FLOATING_ROCK: {fileID: 8300000, guid: 0513e9f81f6c4bb489f9a68a4c729287, type: 3}
+  ROCK_SHIELD: {fileID: 8300000, guid: d980770c7c65c8a43ac6dd622e757ded, type: 3}
   CRYSTAL_SPIKE: {fileID: 8300000, guid: 6533faed75b5c1a4daf2e35dab238225, type: 3}
-  SLIME_SPLASH: {fileID: 0}
-  SLIME_BULLET: {fileID: 0}
-  BUBBLE_POP: {fileID: 0}
+  SLIME_SPLASH: {fileID: 8300000, guid: dddbf3463fa58e640b8db7480991f6f8, type: 3}
+  SLIME_BULLET: {fileID: 8300000, guid: be8f853587a538c48a498a767dbf9f25, type: 3}
+  BUBBLE_POP: {fileID: 8300000, guid: d5643b356b80a0642aa74839f485ce4b, type: 3}
   musicVolume: 0
   sfxVolume: 0
   musicLevel: {fileID: 932062941}
@@ -11341,7 +11342,10 @@ MonoBehaviour:
   confetti: {fileID: 879605321}
   onDefense: 0
   sfx: {fileID: 1267444514}
-  name: 
+  flashMaterial: {fileID: 2100000, guid: 0950e65056349504581d9add885e9ab7, type: 2}
+  duration: 0.2
+  spriteRenderer: {fileID: 1314532160}
+  originalMaterial: {fileID: 0}
 --- !u!4 &1314532155
 Transform:
   m_ObjectHideFlags: 0
@@ -11579,6 +11583,7 @@ MonoBehaviour:
   BHB: {fileID: 1458375153}
   FC: {fileID: 52430119}
   phase2: 0
+  sfx: {fileID: 1267444514}
 --- !u!1 &1318716477
 GameObject:
   m_ObjectHideFlags: 0
@@ -12232,6 +12237,7 @@ MonoBehaviour:
   delay: 0.1
   buttonPos: 405
   panelPosX: 0
+  sfx: {fileID: 1267444514}
 --- !u!114 &1453977024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13638,6 +13644,10 @@ MonoBehaviour:
   pause: {fileID: 144543477}
   LosingPage: {fileID: 4306651}
   sfx: {fileID: 1267444514}
+  flashMaterial: {fileID: 2100000, guid: 0950e65056349504581d9add885e9ab7, type: 2}
+  duration: 0.1
+  spriteRenderer: {fileID: 1692812235}
+  originalMaterial: {fileID: 0}
 --- !u!114 &1692812231
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -45,6 +45,13 @@ public class UIAnimation : MonoBehaviour
             transform.LeanScale(Vector2.one, 0.4f).setEaseOutBack().setIgnoreTimeScale(true);
         }
 
+        if(panel == "game_over"){
+            sfx.play_SFX(sfx.GAME_OVER);
+            transform.localPosition = new Vector2(0f, Screen.height);
+            transform.LeanMoveLocalY(0, 0.5f).setEaseOutBack().setIgnoreTimeScale(true).delay = 0.1f;
+        }
+
+
     }
 
     public void Close(){

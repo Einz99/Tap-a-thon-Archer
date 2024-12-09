@@ -20,6 +20,9 @@ public class SlimeBossBehavior : MonoBehaviour
     private const string difficultyKey = "difficulty";
     public bool phase2 = false;
     private bool stayP2 = true;
+
+    public MasterVolume sfx;
+
     void Start()
     {
         // Set animation speed based on difficulty stored in PlayerPrefs
@@ -124,16 +127,16 @@ public class SlimeBossBehavior : MonoBehaviour
         // Returns the name of the animation parameter for each attack
         switch (attackIndex)
         {
-            case 0: return "Slimey_Tentacles";
-            case 1: return "Slimey_Barrage";
-            case 2: return "Slimey_Trapper";
-            case 3: return "Slimey_Bubble";
-            case 4: return "Slimey_Ripples";
-            case 5: return "P2Slimey_Tentacles";
-            case 6: return "P2Slimey_Barrage";
-            case 7: return "P2Slimey_Trapper";
-            case 8: return "P2Slimey_Bubble";
-            case 9: return "P2Slimey_Ripples";
+            case 0: sfx.play_SFX(sfx.SLIME_WHIP); return "Slimey_Tentacles";
+            case 1: sfx.play_SFX(sfx.SLIME_SHOOT); return "Slimey_Barrage";
+            case 2: sfx.play_SFX(sfx.SLIME_SPLASH); return "Slimey_Trapper";
+            case 3: sfx.play_SFX(sfx.SLIME_BLOW); return "Slimey_Bubble";
+            case 4: sfx.play_SFX(sfx.SLIME_RIPPLE); return "Slimey_Ripples";
+            case 5: sfx.play_SFX(sfx.SLIME_WHIP); return "P2Slimey_Tentacles";
+            case 6: sfx.play_SFX(sfx.SLIME_SHOOT); return "P2Slimey_Barrage";
+            case 7: sfx.play_SFX(sfx.SLIME_SPLASH); return "P2Slimey_Trapper";
+            case 8: sfx.play_SFX(sfx.SLIME_BLOW); return "P2Slimey_Bubble";
+            case 9: sfx.play_SFX(sfx.SLIME_RIPPLE); return "P2Slimey_Ripples";
             default: return "Bear";
         }
     }
@@ -165,6 +168,8 @@ public class SlimeBossBehavior : MonoBehaviour
 
     private void SpawnShotgun(int attackIndex)
     {
+        sfx.play_SFX(sfx.SLIME_BULLET);
+        
         int numProjectiles = 5; // Number of projectiles in the shotgun
         float spreadAngle = 120f; // Total spread angle
         if (phase2)
@@ -195,7 +200,10 @@ public class SlimeBossBehavior : MonoBehaviour
     }
 
     private void SpawnHomingProjectile(int attackIndex)
-    {
+    {;
+        sfx.play_SFX(sfx.SLIME_BLOW);
+        sfx.play_SFX(sfx.BUBBLE_POP);
+
         float speedLesser = 0;
         if (difficulty == 1) speedLesser = 0.5f;
         if (difficulty == 2) speedLesser = 1.5f;
@@ -219,6 +227,7 @@ public class SlimeBossBehavior : MonoBehaviour
 
     private IEnumerator SpawnStompLine(int attackIndex)
     {
+        sfx.play_SFX(sfx.SLIME_SPLASH);
         int numPrefabs = 8; // Number of prefabs to spawn
         float distanceBetween = 1f; // Distance between each prefab
         float spawnDelay = 0.5f; // Delay between each spawn (1 or 1.5 seconds)
@@ -254,6 +263,7 @@ public class SlimeBossBehavior : MonoBehaviour
 
     private IEnumerator SpawnUltimateAttack(int attackIndex)
     {
+        sfx.play_SFX(sfx.SLIME_SPLASH);
         float warningDuration = 2f; // Duration the warning stays visible
         float distanceBetween = 2f; // Distance between prefabs along the line
         float lineOffset = .1f; // Offset between parallel lines

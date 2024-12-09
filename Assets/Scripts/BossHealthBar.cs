@@ -24,6 +24,10 @@ public class BossHealthBar : MonoBehaviour
 
     private void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        originalMaterial = spriteRenderer.material;
+
+
         MaxHealth = FC.Health;
         currentHealth = FC.Health;
         int difficulty = PlayerPrefs.GetInt(difficultyKey, 1);
@@ -60,6 +64,7 @@ public class BossHealthBar : MonoBehaviour
 
     private void HealthCalculations()
     {
+        flash();
     
         if (currentHealth > damage)
         {
@@ -68,12 +73,13 @@ public class BossHealthBar : MonoBehaviour
                 damage = ApplyDefense(damage, defense); // Modify damage with defense
             }
 
+            
             currentHealth -= damage;
             
             sfx.play_SFX(sfx.ARROW_HIT);
-            if(name == "Beary Boss"){sfx.play_SFX(sfx.BEAR_DAMAGED);}
-            if(name == "Slime"){sfx.play_SFX(sfx.SLIME_DAMAGED);}
-            if(name == "Golem Boss"){sfx.play_SFX(sfx.GOLEM_DAMAGED);}
+            if(gameObject.name == "Beary Boss"){sfx.play_SFX(sfx.BEAR_DAMAGED);}
+            if(gameObject.name == "Slime"){sfx.play_SFX(sfx.SLIME_DAMAGED);}
+            if(gameObject.name == "Golem Boss"){sfx.play_SFX(sfx.GOLEM_DAMAGED);}
 
             float percentage = 100 - ((currentHealth / MaxHealth) * 100);
             BossHp.value = percentage;
@@ -147,4 +153,35 @@ public class BossHealthBar : MonoBehaviour
         isInvulnerable = false;
         Debug.Log("Boss is no longer invulnerable.");
     }
+
+    [SerializeField] private Material flashMaterial;
+    [SerializeField] private float duration;
+
+    public SpriteRenderer spriteRenderer;
+
+    public Material originalMaterial;
+
+    private Coroutine flashRoutine;
+
+    public void flash(){
+        if(flashRoutine != null){
+            StopCoroutine(flashRoutine);
+        }
+
+
+        flashRoutine = StartCoroutine(flashCoroutine());
+    }
+
+    private IEnumerator flashCoroutine(){
+
+        spriteRenderer.material = flashMaterial;
+
+        yield return new WaitForSeconds(duration);
+
+        spriteRenderer.material = originalMaterial;
+
+        flashRoutine = null;
+    }
+
+
 }

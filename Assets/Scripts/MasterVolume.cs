@@ -103,7 +103,9 @@ public class MasterVolume : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Time.timeScale = 1;
         Scene scene = SceneManager.GetActiveScene();
+        
 
         if (scene.name == "MenuScene")
         {
