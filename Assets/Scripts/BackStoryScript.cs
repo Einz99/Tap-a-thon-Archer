@@ -21,6 +21,8 @@ public class BackStoryScript : MonoBehaviour
     }
 
     public void skip(){
+        PlayerPrefs.SetInt(sceneCheckerkey, 1);
+        PlayerPrefs.Save();
         SceneManager.LoadScene(2);
     }
 
