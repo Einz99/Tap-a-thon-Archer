@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "1BTN-Game.sln"
+    "dotnet.defaultSolution": "Tap-a-thon-Archer.sln"
 }

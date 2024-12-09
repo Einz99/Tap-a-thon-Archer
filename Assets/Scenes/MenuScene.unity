@@ -648,7 +648,7 @@ Transform:
   m_GameObject: {fileID: 46941591}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.7, y: -37.25, z: 0}
+  m_LocalPosition: {x: 5.33, y: -37.25, z: 0}
   m_LocalScale: {x: 2.3, y: 2.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1697,8 +1697,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 762472444}
   m_HandleRect: {fileID: 762472443}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.3146843
+  m_Value: 1.0000001
+  m_Size: 0.21355
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1952,8 +1952,8 @@ Transform:
   m_GameObject: {fileID: 513539188}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.47, y: -0.5100002, z: 10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -12.449, y: -0.5100002, z: 10}
+  m_LocalScale: {x: 1.0053, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 519420032}
@@ -2529,7 +2529,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 914715004}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.42650884
+  m_Size: 0.23458517
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3042,8 +3042,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.8408, y: -3.8807}
-  m_SizeDelta: {x: 960.3657, y: 772.1605}
+  m_AnchoredPosition: {x: 27.51059, y: -3.8807}
+  m_SizeDelta: {x: 1545.3508, y: 772.1605}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &717153232
 GameObject:
@@ -3389,7 +3389,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 36517412}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.6853157}
+  m_AnchorMin: {x: 0, y: 0.78645}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -3470,8 +3470,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 16, y: -4}
-  m_SizeDelta: {x: 406.7075, y: 314.6843}
+  m_AnchoredPosition: {x: 16, y: -37.750576}
+  m_SizeDelta: {x: 406.7075, y: 382.1855}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &806552857
 MonoBehaviour:
@@ -3941,7 +3941,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1360738190}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.57349116}
+  m_AnchorMin: {x: 0, y: 0.76541483}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -6027,7 +6027,7 @@ Transform:
   m_GameObject: {fileID: 1218266534}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -54.36, y: -9.56, z: 0}
+  m_LocalPosition: {x: -54.79, y: -9.56, z: 0}
   m_LocalScale: {x: 2.3, y: 2.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9321,7 +9321,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 1000}
+  m_SizeDelta: {x: 0, y: 1789.677}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1360738189
 GameObject:
@@ -31077,7 +31077,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 1046.1}
+  m_SizeDelta: {x: 0, y: 1901.9572}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1720639235
 GameObject:
@@ -31457,8 +31457,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 16.305908}
-  m_SizeDelta: {x: 0, y: -32.6118}
+  m_AnchoredPosition: {x: 0, y: -0.00012207031}
+  m_SizeDelta: {x: 0, y: 0.00012207}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1849102227
 MonoBehaviour:
@@ -31480,7 +31480,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\nGame Name is a one-button action game where you, a mystical warrior,
+  m_text: "\nSwivel Quiver is a one-button action game where you, a mystical warrior,
     must defeat powerful guardians by automatically shooting arrows while strategically
     controlling your movement. As you grow stronger, your victories bring prosperity
     to your land and village, with the flourishing of the village tied to your success.
@@ -31520,8 +31520,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -31558,7 +31558,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: -33.82163}
+  m_margin: {x: 0, y: 0, z: 0, w: 0.00020980835}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -47446,7 +47446,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.83599854, y: -8.816711}
+  m_AnchoredPosition: {x: -0.83599854, y: 435}
   m_SizeDelta: {x: 433.6389, y: 1028.5247}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2074491165
@@ -47552,7 +47552,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: -871.36755}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

@@ -863,7 +863,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: confirm
   backdrop: {fileID: 1108105790}
-  sfx: {fileID: 0}
+  sfx: {fileID: 599892020}
 --- !u!1 &133400476
 GameObject:
   m_ObjectHideFlags: 0
@@ -5829,7 +5829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9472d222ece124a8c27df800c5400c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfx: {fileID: 0}
+  sfx: {fileID: 599892020}
 --- !u!114 &470062728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7579,7 +7579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9472d222ece124a8c27df800c5400c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfx: {fileID: 0}
+  sfx: {fileID: 599892020}
 --- !u!114 &698444483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7809,7 +7809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9472d222ece124a8c27df800c5400c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfx: {fileID: 0}
+  sfx: {fileID: 599892020}
 --- !u!114 &716977070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9485,7 +9485,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: confirm
   backdrop: {fileID: 1108105790}
-  sfx: {fileID: 0}
+  sfx: {fileID: 599892020}
 --- !u!1 &1037465739
 GameObject:
   m_ObjectHideFlags: 0
@@ -10410,7 +10410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9472d222ece124a8c27df800c5400c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfx: {fileID: 0}
+  sfx: {fileID: 599892020}
 --- !u!114 &1075477938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20525,7 +20525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9472d222ece124a8c27df800c5400c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfx: {fileID: 0}
+  sfx: {fileID: 599892020}
 --- !u!114 &1307328990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22103,7 +22103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9472d222ece124a8c27df800c5400c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfx: {fileID: 0}
+  sfx: {fileID: 599892020}
 --- !u!114 &1790441704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23520,7 +23520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9472d222ece124a8c27df800c5400c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfx: {fileID: 0}
+  sfx: {fileID: 599892020}
 --- !u!114 &1939307133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24395,7 +24395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: settings
   backdrop: {fileID: 1108105790}
-  sfx: {fileID: 0}
+  sfx: {fileID: 599892020}
 --- !u!1 &2036915620
 GameObject:
   m_ObjectHideFlags: 0
@@ -24642,7 +24642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9472d222ece124a8c27df800c5400c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfx: {fileID: 0}
+  sfx: {fileID: 599892020}
 --- !u!114 &2064081262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24961,7 +24961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9472d222ece124a8c27df800c5400c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfx: {fileID: 0}
+  sfx: {fileID: 599892020}
 --- !u!114 &2096466380
 MonoBehaviour:
   m_ObjectHideFlags: 0
