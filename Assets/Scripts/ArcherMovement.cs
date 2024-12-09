@@ -71,14 +71,8 @@ public class ArcherMovement : MonoBehaviour
     }
 
     void Update()
-{
-    if (heartContainer.transform.childCount == 0)
     {
-        pause.SetActive(false);
-        LosingPage.SetActive(true);
-        Time.timeScale = 0;
-        LosingPage.GetComponent<PlayUISprite>().playAnimation("open");
-    }
+
 
     if (isHolding) return;
     if (pathPoints == null || pathPoints.Count == 0) return;
@@ -171,18 +165,26 @@ public void ChangeDirection()
     private void minusHeart()
     {
         flash();
+        
 
         if (heartContainer.transform.childCount != 0)
         {
-            Transform child = heartContainer.transform.GetChild(0);
-            
             sfx.play_SFX(sfx.PLAYER_DAMAGED);
+            Transform child = heartContainer.transform.GetChild(0);
             Destroy(child.gameObject);
             if (PlayerPrefs.GetInt(vibrateKey, 0) == 0)
             {
                 Handheld.Vibrate();
             }
         }
+        if (heartContainer.transform.childCount == 1)
+                {
+                    Time.timeScale = 0;
+                    pause.SetActive(false);
+                    LosingPage.SetActive(true);
+                    LosingPage.GetComponent<UIAnimation>().Open();
+                    LosingPage.GetComponent<PlayUISprite>().playLoopedAnimaion();
+                }
     }
 
     [SerializeField] private Material flashMaterial;

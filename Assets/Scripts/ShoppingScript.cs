@@ -204,7 +204,7 @@ public class ShoppingScript : MonoBehaviour
         Gold -= prices[level];
         slider.value--;
         level++;
-        leveltxt.text = "Level " + level;
+        leveltxt.text = "LVL. " + level;
         GameObject.Find("Amount_txt").GetComponent<TextMeshProUGUI>().text = Gold.ToString();
         PlayerPrefs.SetInt(currencyKey, Gold);
         switch (gameObject.name)

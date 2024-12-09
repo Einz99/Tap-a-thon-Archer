@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
@@ -5,25 +6,23 @@ using UnityEngine.Video;
 public class BackStoryScript : MonoBehaviour
 {
     private const string sceneCheckerkey = "sceneCheck";
-    public VideoPlayer videoPlayer;
     public Scene scene;
     void Start()
     {
-        videoPlayer.loopPointReached += onVideoEnd;
+        StartCoroutine(LoadNextScene());
     }
 
-    public void onVideoEnd(VideoPlayer vp) 
+    private IEnumerator LoadNextScene() 
     {
         PlayerPrefs.SetInt(sceneCheckerkey, 1);
         PlayerPrefs.Save();
+        yield return new WaitForSeconds(34f); // 31 how long video + 4sec;
         SceneManager.LoadScene(2);
     }
 
-    void OnDestroy()
-    {
-        if(videoPlayer != null)
-        {
-            videoPlayer.loopPointReached -= onVideoEnd;
-        }
+    public void skip(){
+        SceneManager.LoadScene(2);
     }
+
+
 }

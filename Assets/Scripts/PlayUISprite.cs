@@ -60,7 +60,7 @@ public class PlayUISprite : MonoBehaviour
         while(isDone)
         {
             Debug.Log("Start anim");
-            yield return new WaitForSecondsRealtime(0.05f);
+            yield return new WaitForSecondsRealtime(animSpeed);
             index++;
             Debug.Log(index);
             if(index >= sprites.Count){
